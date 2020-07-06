@@ -12,7 +12,6 @@
 <script>
 import top from '../../components/top/top'
 import navb from '../../components/navb/navb'
-import buttom from '../../components/buttom/buttom'
  export default {
    name: '',
    props: {
@@ -20,7 +19,6 @@ import buttom from '../../components/buttom/buttom'
    components: {
        top,
        navb,
-       buttom,
    },
    data () {
      return {

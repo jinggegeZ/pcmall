@@ -4,23 +4,18 @@
         <div><top></top></div>
         <div><navb></navb></div>
         <div><router-view></router-view></div>
-        <div><buttom></buttom></div>
     </div>
  </div>
 </template>
 
 <script>
 import top from '../../components/top/top'
-import navb from '../../components/navb/navb'
-import buttom from '../../components/buttom/buttom'
  export default {
    name: '',
    props: {
    },
    components: {
        top,
-       navb,
-       buttom,
    },
    data () {
      return {
@@ -28,7 +23,9 @@ import buttom from '../../components/buttom/buttom'
      }
    },
    methods: {
-       
+       backhome(){
+           this.$router.push('/')
+       }
    },
    mounted() {
 
@@ -43,7 +40,16 @@ import buttom from '../../components/buttom/buttom'
 </script>
 
 <style scoped lang='scss'>
-.box {
-    width: 100%;
+
+.dian {
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: rgb(150,150,150);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.t-font:hover {
+    color: blue;
 }
 </style>

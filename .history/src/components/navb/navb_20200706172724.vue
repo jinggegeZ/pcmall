@@ -43,14 +43,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.nav {
-    width: 100%; 
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 1px 2px 0 #ddd;
-
-}
 .t-nav1 {
   width: 1220px;
   height: 100px;

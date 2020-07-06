@@ -1,11 +1,14 @@
 <template>
   <div>
+    <top></top>
+    <navb></navb>
     <swiper></swiper>
     <middle></middle>
     <hootgoods></hootgoods>
     <officialSelection></officialSelection>
     <aroundBrand></aroundBrand>
     <brandSelection></brandSelection>
+    <buttom></buttom>
   </div>
 </template>
 
