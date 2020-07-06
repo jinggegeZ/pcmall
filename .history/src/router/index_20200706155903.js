@@ -12,7 +12,7 @@ Vue.use(VueRouter)
       component:layout,
       children:[
         {
-          path: '',
+          path: '/',
           name: 'Home',
           component: Home,
           meta:{

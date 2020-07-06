@@ -6,22 +6,11 @@ import layout from '../views/layout1/layout'
 Vue.use(VueRouter)
 
   const routes = [
-    {
-      path:'/',
-      name:'layout',
-      component:layout,
-      children:[
-        {
-          path: '',
-          name: 'Home',
-          component: Home,
-          meta:{
-            title:'#home'
-          }
-        },
-      ]
-    },
-  
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
   {
     path: '/login',
     name: 'login',
