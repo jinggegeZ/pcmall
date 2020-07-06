@@ -18,7 +18,7 @@
           </div>
           <div class="r-right">
             <div class="piaoqilai" @click="login">
-              <Icon type="ios-contact" size="24" />
+              <Icon type="ios-person-add" size="24" />
             </div>
             <div class="carts">
               <div class="piaoqilai">
@@ -46,7 +46,7 @@ export default {
       this.$router.push("/");
     },
     login(){
-      this.$router.push('/login')
+      this.$router.push('/details')
     }
   },
   mounted() {},

@@ -1,6 +1,6 @@
 <template>
  <div>
-
+    <div class="box"></div>
  </div>
 </template>
 
@@ -33,5 +33,9 @@
 </script>
 
 <style scoped lang='scss'>
-
+.box {
+    width: 100%;
+    height: 100%;
+    background:;
+}
 </style>

@@ -12,8 +12,7 @@
         <div class="b-input">
           <Input v-model="number2" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
-        <div class="vpat">
-          <div  ref="vaptcha" style="width:300px;height:36px">
+        <div  ref="vaptcha" style="width:300px;height:36px">
           <div class="vaptcha-init-main">
             <div class="vaptcha-init-loading">
               <a href="https://www.vaptcha.com/" target="_blank">
@@ -22,7 +21,6 @@
               <span class="vaptcha-text">VAPTCHA启动中...</span>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -165,7 +163,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 }
 .vaptcha-init-main {
   display: table;
