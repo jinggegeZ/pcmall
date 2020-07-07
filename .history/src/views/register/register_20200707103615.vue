@@ -1,30 +1,18 @@
 <template>
-  <div>
+ <div>
     <div class="box">
-      <div class="register">
-        <div class="top">
-          <div class="top1">注册Xmall账号</div>
+        <div class="register">
+            <div class="top">
+                <div class="top1">注册Xmall账号</div>
+            </div>
+            <div class="b-input">
+          <Input v-model="uesrname" placeholder="账号" clearable style="width: 300px" />
         </div>
         <div class="b-input">
-          <Input v-model="username" placeholder="账号" clearable style="width: 300px" />
+          <Input v-model="password" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="b-input">
-          <Input
-            v-model="password"
-            placeholder="密码"
-            clearable
-            style="width: 300px"
-            type="password"
-          />
-        </div>
-        <div class="b-input">
-          <Input
-            v-model="rpassword"
-            placeholder="重复密码"
-            clearable
-            style="width: 300px"
-            type="password"
-          />
+          <Input v-model="rpassword" placeholder="重复密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="vpat">
           <div ref="vaptcha" style="width:300px;height:36px">
@@ -39,30 +27,22 @@
           </div>
         </div>
         <div class="b-input">
-          <Radio v-model="single">Radio</Radio>我已阅读并理解
-          <a href>法律声明</a>和
-          <a href>隐私条款</a>
+        <Radio v-model="single">Radio</Radio>我已阅读并理解
+        <a href="">法律声明</a>和<a href="">隐私条款</a>
         </div>
         <div class="clk">
-          <div v-if="this.username === ''||this.password === ''" class="click">
-            <Button type="info" long disabled>注册</Button>
-          </div>
-          <div v-else class="click" @click="register">
-            <Button type="info" long>注册</Button>
-          </div>
+          <div v-if="this.username === ''||this.password === ''" class="click"><Button type="info" long disabled>注册</Button></div>
+          <div v-else class="click" @click="register"><Button type="info" long>注册</Button></div>
         </div>
         <div class="clk">
-          <div class="click1"></div>
+            <div class="click1"></div>
         </div>
         <div class="clk">
-          <div class="click2">
-            如果您已有Xmall账号可以点此
-            <a href="/login">登录</a>
-          </div>
+        <div class="click2">如果您已有Xmall账号可以点此<a href="/login">登录</a></div>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
+ </div>
 </template>
 
 <script>
@@ -72,10 +52,10 @@ const extend = function(to, _from) {
   }
   return to;
 };
-export default {
-  name: "",
-  props: {
-    type: {
+ export default {
+   name: '',
+   props: {
+       type: {
       type: String,
       default: "click"
     },
@@ -95,18 +75,20 @@ export default {
       type: String,
       default: "auto"
     }
-  },
-  components: {},
-  data() {
-    return {
-      username: "",
-      password: "",
-      rpassword: "",
-      single: false
-    };
-  },
-  methods: {
-    loadV2Script() {
+   },
+   components: {
+
+   },
+   data () {
+     return {
+        username:'',
+        password:'',
+        rpassword:'',
+        single:false
+     }
+   },
+   methods: {
+       loadV2Script() {
       if (typeof window.vaptcha === "function") {
         //如果已经加载就直接放回
         return Promise.resolve();
@@ -129,27 +111,26 @@ export default {
         });
       }
     },
-    register() {
+    register(){
       this.$api
-        .register({ username: this.username, password: this.password })
-        .then(res => {
-          if (this.password !== this.rpassword) {
-            this.$Message.error(res.msg);
-          } else if (this.username) {
-            this.$Message.error(res.msg);
-          } else {
-            this.$Message.success(res.msg);
-          }
-          this.$router.push({
-            path: "/login",
-            query: { username: this.username, password: this.password }
-          });
-        })
-        .catch(err => {});
+      .register({username:this.username,password:this.password})
+      .then(res => {
+        if(this.password !== this.rpassword){
+          this.$Message.error('两次输入不一致请重新输入')
+        }
+        if(this.password ===''|| this.username === '' || this.rpassword=== ''){
+          this.$Message.error('输入不能为空')
+        }
+      else{
+        this.$Message.success('注册成功')
+      }
+        console.log(res);
+      })
+      .catch(err => {})
     }
-  },
-  mounted() {
-    var config = extend(
+   },
+   mounted() {
+       var config = extend(
       {
         vid: "5efc030de988dd2fc1b8e91b",
         container: this.$refs.vaptcha,
@@ -163,10 +144,14 @@ export default {
         obj.render();
       });
     });
-  },
-  watch: {},
-  computed: {}
-};
+   },
+   watch: {
+
+   },
+   computed: {
+
+   }
+ }
 </script>
 
 <style scoped lang='scss'>
@@ -187,21 +172,22 @@ export default {
   border-radius: 10px;
 }
 .top {
-  height: 80px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid rgb(150, 150, 150);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(150,150,150);
 }
 .top1 {
-  width: 350px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: 700;
+    width: 350px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    
 }
 .b-input {
   height: 45px;
@@ -230,7 +216,7 @@ export default {
   width: 320px;
   height: 40px;
   margin-top: 15px;
-  border-bottom: 1px solid rgb(150, 150, 150);
+  border-bottom: 1px solid rgb(150,150,150);
 }
 .click2 {
   width: 320px;

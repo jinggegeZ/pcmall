@@ -1,30 +1,16 @@
 <template>
   <div>
     <div class="box">
-      <div class="register">
+      <div class="login">
         <div class="top">
-          <div class="top1">注册Xmall账号</div>
+          <div class="left">M</div>
         </div>
+        <div class="b-font">使用XMall账号 登录官网</div>
         <div class="b-input">
           <Input v-model="username" placeholder="账号" clearable style="width: 300px" />
         </div>
         <div class="b-input">
-          <Input
-            v-model="password"
-            placeholder="密码"
-            clearable
-            style="width: 300px"
-            type="password"
-          />
-        </div>
-        <div class="b-input">
-          <Input
-            v-model="rpassword"
-            placeholder="重复密码"
-            clearable
-            style="width: 300px"
-            type="password"
-          />
+          <Input v-model="password" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="vpat">
           <div ref="vaptcha" style="width:300px;height:36px">
@@ -38,26 +24,33 @@
             </div>
           </div>
         </div>
-        <div class="b-input">
-          <Radio v-model="single">Radio</Radio>我已阅读并理解
-          <a href>法律声明</a>和
-          <a href>隐私条款</a>
-        </div>
-        <div class="clk">
-          <div v-if="this.username === ''||this.password === ''" class="click">
-            <Button type="info" long disabled>注册</Button>
-          </div>
-          <div v-else class="click" @click="register">
-            <Button type="info" long>注册</Button>
+        <div class="rem">
+          <div class="rem1">
+            <div><Radio v-model="single">记住密码</Radio></div>
+            <div class="rem2">
+              <a href="/register" >注册Xmall账号</a>
+              <div class="xainge"></div>
+              <a href="">忘记密码？</a>
+            </div>
           </div>
         </div>
         <div class="clk">
-          <div class="click1"></div>
+           <div v-if="this.number1 === '' ||this.password === ''" class="click"><Button type="success" long  disabled>登录</Button></div>
+           <div v-else class="click" ><Button type="success" long  >登录</Button></div>
         </div>
         <div class="clk">
-          <div class="click2">
-            如果您已有Xmall账号可以点此
-            <a href="/login">登录</a>
+          <div class="click"><Button type="error" long>返回</Button></div>
+        </div>
+        <div class="down">
+          <div class="down1"></div>
+        </div>
+        <div class="down">
+          <div class="down2">
+            <div>其他方式登录：</div>
+            <div class="down3"><Icon type="logo-twitter" size="24" /></div>
+            <div class="down3"><Icon type="md-finger-print" size="24" /></div>
+            <div class="down3"><Icon type="logo-tux" size="24" /></div>
+            <div><Icon type="logo-xbox" /></div>
           </div>
         </div>
       </div>
@@ -101,7 +94,6 @@ export default {
     return {
       username: "",
       password: "",
-      rpassword: "",
       single: false
     };
   },
@@ -128,24 +120,6 @@ export default {
           document.getElementsByTagName("head")[0].appendChild(script);
         });
       }
-    },
-    register() {
-      this.$api
-        .register({ username: this.username, password: this.password })
-        .then(res => {
-          if (this.password !== this.rpassword) {
-            this.$Message.error(res.msg);
-          } else if (this.username) {
-            this.$Message.error(res.msg);
-          } else {
-            this.$Message.success(res.msg);
-          }
-          this.$router.push({
-            path: "/login",
-            query: { username: this.username, password: this.password }
-          });
-        })
-        .catch(err => {});
     }
   },
   mounted() {
@@ -163,6 +137,8 @@ export default {
         obj.render();
       });
     });
+    this.username = this.$route.query.username
+    this.password = this.$route.query.password
   },
   watch: {},
   computed: {}
@@ -178,7 +154,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.register {
+.login {
   width: 450px;
   height: 580px;
   background: white;
@@ -187,34 +163,92 @@ export default {
   border-radius: 10px;
 }
 .top {
-  height: 80px;
+  height: 160px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid rgb(150, 150, 150);
 }
-.top1 {
-  width: 350px;
-  height: 50px;
+.left {
+  width: 90px;
+  height: 90px;
+  background: red;
+  border-radius: 45px;
+  color: white;
+  font-size: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
-  font-weight: 700;
+}
+.b-font {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
 }
 .b-input {
   height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
 }
 .vpat {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+}
+.vaptcha-init-main {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+}
+
+.vaptcha-init-loading {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vaptcha-init-loading > a {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.vaptcha-init-loading > a img {
+  vertical-align: middle;
+}
+.vaptcha-init-loading .vaptcha-text {
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #cccccc;
+  vertical-align: middle;
+}
+.rem {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rem1 {
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.rem2 {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.xainge {
+  height: 15px;
+  width: 2px;
+  background: rgb(150, 150, 150);
 }
 .clk {
   width: 100%;
@@ -226,18 +260,25 @@ export default {
   height: 40px;
   margin-top: 15px;
 }
-.click1 {
-  width: 320px;
-  height: 40px;
-  margin-top: 15px;
-  border-bottom: 1px solid rgb(150, 150, 150);
+.down {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
 }
-.click2 {
+.down1 {
+  width: 320px;
+  height: 1px;
+  background: rgb(150, 150, 150);
+  margin-top: 30px;
+}
+.down2 {
   width: 320px;
   height: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 15px;
+}
+.down3 {
+  margin-right: 5px;
 }
 </style>
