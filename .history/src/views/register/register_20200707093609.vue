@@ -1,0 +1,53 @@
+<template>
+ <div>
+    <div>123</div>
+ </div>
+</template>
+
+<script>
+ export default {
+   name: '',
+   props: {
+   },
+   components: {
+
+   },
+   data () {
+     return {
+
+     }
+   },
+   methods: {
+
+   },
+   mounted() {
+
+   },
+   watch: {
+
+   },
+   computed: {
+
+   }
+ }
+</script>
+
+<style scoped lang='scss'>
+.box {
+  width: 100%;
+  height: 100%;
+  background: rgb(250, 250, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  width: 450px;
+  height: 580px;
+  background: white;
+  box-shadow: 0 8px 16px 0 #ddd;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+</style>

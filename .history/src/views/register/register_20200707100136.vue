@@ -6,13 +6,13 @@
                 <div class="top1">注册Xmall账号</div>
             </div>
             <div class="b-input">
-          <Input v-model="uesrname" placeholder="账号" clearable style="width: 300px" />
+          <Input v-model="number1" placeholder="账号" clearable style="width: 300px" />
         </div>
         <div class="b-input">
           <Input v-model="password" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="b-input">
-          <Input v-model="password" placeholder="重复密码" clearable style="width: 300px" type="password" />
+          <Input v-model="password" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="vpat">
           <div ref="vaptcha" style="width:300px;height:36px">
@@ -31,15 +31,9 @@
         <a href="">法律声明</a>和<a href="">隐私条款</a>
         </div>
         <div class="clk">
-          <div v-if="this.username === ''||this.password === ''" class="click"><Button type="info" long disabled>注册</Button></div>
-          <div v-else class="click"><Button type="info" long>注册</Button></div>
+          <div class="click"><Button type="info" long>注册</Button></div>
         </div>
-        <div class="clk">
-            <div class="click1"></div>
-        </div>
-        <div class="clk">
-        <div class="click2">如果您已有Xmall账号可以点此<a href="/login">登录</a></div>
-        </div>
+        <div></div>
         </div>
     </div>
  </div>
@@ -81,8 +75,7 @@ const extend = function(to, _from) {
    },
    data () {
      return {
-        username:'',
-        password:'',
+        num:'',
         singer:false
      }
    },
@@ -192,20 +185,6 @@ const extend = function(to, _from) {
 .click {
   width: 320px;
   height: 40px;
-  margin-top: 15px;
-}
-.click1 {
-  width: 320px;
-  height: 40px;
-  margin-top: 15px;
-  border-bottom: 1px solid rgb(150,150,150);
-}
-.click2 {
-  width: 320px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 15px;
 }
 </style>
