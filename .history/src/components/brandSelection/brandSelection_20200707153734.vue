@@ -35,7 +35,7 @@
    name: '',
    props: {
      brandSelection:{
-       type: Array,
+       type:Array,
        default:() => {}
      }
    },

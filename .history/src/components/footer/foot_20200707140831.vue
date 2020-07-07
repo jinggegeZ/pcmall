@@ -29,14 +29,14 @@ export default {
   components: {},
   data() {
     return {
-      productId: ""
+      id: ""
     };
   },
   methods: {
     details() {
       this.$router.push({
         path: "deta",
-        query: {productId : productId}
+        query: {id : productId}
       });
     }
   },

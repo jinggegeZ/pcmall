@@ -8,7 +8,7 @@
             <div class="hot_stuff">
               <div class="hot_e"><img :src="item.picUrl" alt=""></div>
               <div class="hot_f">{{item.productName}}</div>
-              <div class="hot_g">{{item.subTitle}}</div>
+              <div class="hot_g">此仅为支付测试商品 拍下不会发货</div>
               <div class="hot_h">
               ￥1.00
               <div class="hot_i">

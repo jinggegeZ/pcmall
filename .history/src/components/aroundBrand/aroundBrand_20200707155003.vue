@@ -2,15 +2,15 @@
  <div>
     <div class="hot">
       <div class="jx">
-        <div class="hot_b">品牌精选</div>
+        <div class="hot_b">商品周边</div>
         <div class="hot_c">
         <!-- 第一张 -->
-        <div class="jx_b" v-for="item in brandSelection.slice(0,1)" :key="item.id">
+        <div class="jx_b" v-for="item in aroundBrand.slice(0,1)" :key="item.id">
           <img :src="item.picUrl" alt="">
           <div class="jx_c"></div>
         </div>
         <!-- 其余的 -->
-          <div class="jx_a" v-for="item1 in brandSelection.slice(1,7)" :key="item1.id">
+          <div class="jx_a" v-for="item1 in aroundBrand.slice(1,7)" :key="item1.id">
             <div class="hot_stuff">
               <div class="hot_e"><img :src="item1.picUrl" alt=""></div>
               <div class="hot_f">{{item1.productName}}</div>
@@ -34,8 +34,8 @@
  export default {
    name: '',
    props: {
-     brandSelection:{
-       type: Array,
+     aroundBrand:{
+       type:Array,
        default:() => {}
      }
    },

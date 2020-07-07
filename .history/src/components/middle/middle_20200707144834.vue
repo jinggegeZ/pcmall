@@ -1,9 +1,9 @@
 <template>
  <div>
    <div class="four">
-      <div class="four_a" >
-        <div class="four_b" v-for="(item,index) in middle" :key="index">
-          <img :src="item.picUrl" alt />
+      <div class="four_a" v-for="(item,index) in middle" :key="index">
+        <div class="four_b">
+          <img src="https://resource.smartisan.com/resource/6/610400xinpinpeijian.jpg" alt />
           <div class="four_c"></div>
         </div>
       </div>

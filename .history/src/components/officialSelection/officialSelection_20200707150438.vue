@@ -2,21 +2,21 @@
  <div>
     <div class="hot">
       <div class="jx">
-        <div class="hot_b">品牌精选</div>
+        <div class="hot_b">官方精选</div>
         <div class="hot_c">
         <!-- 第一张 -->
-        <div class="jx_b" v-for="item in brandSelection.slice(0,1)" :key="item.id">
+        <div class="jx_b" v-for="(item,index) in officialSelection.slice(0,1)" :key="index">
           <img :src="item.picUrl" alt="">
           <div class="jx_c"></div>
         </div>
         <!-- 其余的 -->
-          <div class="jx_a" v-for="item1 in brandSelection.slice(1,7)" :key="item1.id">
+          <div class="jx_a" v-for="(item1,index1) in officialSelection.slice(1,7)" :key="index1">
             <div class="hot_stuff">
-              <div class="hot_e"><img :src="item1.picUrl" alt=""></div>
-              <div class="hot_f">{{item1.productName}}</div>
-              <div class="hot_g">{{item1.subTitle}}</div>
+              <div class="hot_e"><img src="https://i.loli.net/2018/07/13/5b48a7f468bf2.png" alt=""></div>
+              <div class="hot_f">支付测试商品 IPhone X 全面屏 全面绽放</div>
+              <div class="hot_g">此仅为支付测试商品 拍下不会发货</div>
               <div class="hot_h">
-              ￥{{item1.salePrice}}
+              ￥1.00
               <div class="hot_i">
                   <Button>查看详情</Button>
                   <Button type="primary">加入购物车</Button>
@@ -34,8 +34,8 @@
  export default {
    name: '',
    props: {
-     brandSelection:{
-       type: Array,
+     officialSelection:{
+       type:Array,
        default:() => {}
      }
    },

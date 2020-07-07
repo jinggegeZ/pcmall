@@ -32,7 +32,7 @@ export default {
   },
   methods: {},
   mounted() {
-    this.productId = this.$route.query.productId
+    this.productId = this.$route.query.id
     console.log(this.productId);
   },
   watch: {},

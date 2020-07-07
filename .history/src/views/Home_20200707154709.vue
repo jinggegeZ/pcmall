@@ -52,10 +52,10 @@ export default {
         this.hotgoods = res.data[2].panelContents;
         this.officialSelection = res.data[3].panelContents;
         this.aroundBrand = res.data[4].panelContents;
+        console.log(this.aroundBrand);
         this.bandSelection = res.data[5].panelContents;
         this.panelContents = res.data[6].panelContents;
         console.log(this.list);
-        console.log(this.aroundBrand);
       })
       .catch(err => {});
   },

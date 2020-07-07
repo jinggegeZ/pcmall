@@ -44,18 +44,23 @@ export default {
   },
   methods: {},
   mounted() {
-    this.$api.homeGoods()
+    this.$api
+      .homeGoods()
       .then(res => {
         this.list = res.data;
         this.swiper = res.data[0].panelContents;
+
         this.middle = res.data[1].panelContents;
+
         this.hotgoods = res.data[2].panelContents;
+
         this.officialSelection = res.data[3].panelContents;
+
         this.aroundBrand = res.data[4].panelContents;
+        console.log(this.aroundBrand);
         this.bandSelection = res.data[5].panelContents;
         this.panelContents = res.data[6].panelContents;
         console.log(this.list);
-        console.log(this.aroundBrand);
       })
       .catch(err => {});
   },

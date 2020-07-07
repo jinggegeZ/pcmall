@@ -29,14 +29,14 @@ export default {
   components: {},
   data() {
     return {
-      productId: ""
+      id: ""
     };
   },
   methods: {
     details() {
       this.$router.push({
         path: "deta",
-        query: {productId : productId}
+        query: {}
       });
     }
   },
@@ -65,7 +65,7 @@ export default {
   width: 406px;
   height: 200px;
 }
-.img:hover {
+.img :hover {
   box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
   transition: all 0.15s ease;
 }
