@@ -6,7 +6,7 @@
     <officialSelection></officialSelection>
     <aroundBrand></aroundBrand>
     <brandSelection></brandSelection>
-    <foot :panelContents = panelContents></foot>
+    <foot></foot>
   </div>
 </template>
 

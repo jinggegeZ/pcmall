@@ -1,6 +1,6 @@
 <template>
  <div>
-    <button  @click="click">点击</button>
+  <div class="box"></div>
  </div>
 </template>
 
@@ -18,9 +18,7 @@
      }
    },
    methods: {
-     click(){
-       this.$router.push('/deta')
-     }
+
    },
    mounted() {
 
@@ -35,5 +33,8 @@
 </script>
 
 <style scoped lang='scss'>
-
+.box {
+  width: 100%;
+  height: 100%;
+}
 </style>

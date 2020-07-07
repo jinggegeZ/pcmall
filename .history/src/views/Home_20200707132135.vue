@@ -6,7 +6,7 @@
     <officialSelection></officialSelection>
     <aroundBrand></aroundBrand>
     <brandSelection></brandSelection>
-    <foot :panelContents = panelContents></foot>
+    <foot></foot>
   </div>
 </template>
 
@@ -31,24 +31,12 @@ export default {
     foot,
   },
   data() {
-    return {
-      list:[],
-      panelContents:[]
-
-    };
+    return {};
   },
   methods: {
     
   },
-  mounted() {
-    this.$api.homeGoods()
-    .then(res => {
-      this.list = res.data
-      this.panelContents = res.data[6].panelContents
-      console.log(this.panelContents);
-    })
-    .catch(err => {})
-  },
+  mounted() {},
   watch: {},
   computed: {}
 };

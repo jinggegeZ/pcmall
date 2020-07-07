@@ -22,7 +22,7 @@ Vue.use(VueRouter)
         {
           path: 'deta',
           name: 'deta',
-          component: () => import('../views/Details/deta.vue'),
+          component: () => {'../views/Details/deta.vue'},
           meta:{
             title:'详情'
           }

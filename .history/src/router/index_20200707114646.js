@@ -20,11 +20,11 @@ Vue.use(VueRouter)
           }
         },
         {
-          path: 'deta',
-          name: 'deta',
-          component: () => import('../views/Details/deta.vue'),
+          path: 'details',
+          name: 'details',
+          component: () => {'../views/Details/details.vue'},
           meta:{
-            title:'详情'
+            title:'#details'
           }
         },
       ]
@@ -33,12 +33,18 @@ Vue.use(VueRouter)
   {
     path: '/login',
     name: 'login',
-    component: () => import( '../views/login/login.vue')
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/login/login.vue')
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import('../views/register/register.vue')
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/register/register.vue')
   },
 ]
 

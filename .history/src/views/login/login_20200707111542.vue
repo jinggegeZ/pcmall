@@ -125,8 +125,6 @@ export default {
       this.$api
       .login({ username: this.username, password: this.password })
       .then(res => {
-        this.$Message.success(res.msg)
-        this.$router.push('/')
         console.log(res);
       })
       .catch(err => {})

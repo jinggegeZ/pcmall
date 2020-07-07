@@ -126,7 +126,7 @@ export default {
       .login({ username: this.username, password: this.password })
       .then(res => {
         this.$Message.success(res.msg)
-        this.$router.push('/')
+        this.$router.push('')
         console.log(res);
       })
       .catch(err => {})

@@ -1,6 +1,6 @@
 <template>
  <div>
-    <button  @click="click">点击</button>
+    <div @click="details"><button>点击</button></div>
  </div>
 </template>
 
@@ -18,8 +18,8 @@
      }
    },
    methods: {
-     click(){
-       this.$router.push('/deta')
+     details(){
+       this.$router.push('details')
      }
    },
    mounted() {

@@ -39,7 +39,7 @@
            <div v-else class="click" @click="login"><Button type="success" long  >登录</Button></div>
         </div>
         <div class="clk">
-          <div class="click" @click="back"><Button type="error" long>返回</Button></div>
+          <div class="click"><Button type="error" long>返回</Button></div>
         </div>
         <div class="down">
           <div class="down1"></div>
@@ -122,17 +122,7 @@ export default {
       }
     },
     login(){
-      this.$api
-      .login({ username: this.username, password: this.password })
-      .then(res => {
-        this.$Message.success(res.msg)
-        this.$router.push('/')
-        console.log(res);
-      })
-      .catch(err => {})
-    },
-    back(){
-      this.$router.go(-1)
+      this.$api.login({})
     }
   },
   mounted() {

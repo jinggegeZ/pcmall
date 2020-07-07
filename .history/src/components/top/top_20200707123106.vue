@@ -86,12 +86,12 @@ input {
 }
 
 .left {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   background: white;
-  border-radius: 20px;
+  border-radius: 23px;
   color: black;
-  font-size: 30px;
+  font-size: 36px;
   display: flex;
   justify-content: center;
   align-items: center;

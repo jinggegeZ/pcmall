@@ -19,7 +19,7 @@
    },
    methods: {
      click(){
-       this.$router.push('/deta')
+       this.$router.push('deta')
      }
    },
    mounted() {

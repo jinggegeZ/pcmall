@@ -6,7 +6,6 @@
     <officialSelection></officialSelection>
     <aroundBrand></aroundBrand>
     <brandSelection></brandSelection>
-    <foot :panelContents = panelContents></foot>
   </div>
 </template>
 
@@ -17,7 +16,6 @@ import hootgoods from '../components/hotgoods/hootgoods'
 import officialSelection from '../components/officialSelection/officialSelection'
 import aroundBrand from '../components/aroundBrand/aroundBrand'
 import brandSelection from '../components/brandSelection/brandSelection'
-import foot from '../components/footer/foot'
 export default {
   name: "",
   props: {},
@@ -28,27 +26,12 @@ export default {
     officialSelection,
     aroundBrand,
     brandSelection,
-    foot,
   },
   data() {
-    return {
-      list:[],
-      panelContents:[]
-
-    };
+    return {};
   },
-  methods: {
-    
-  },
-  mounted() {
-    this.$api.homeGoods()
-    .then(res => {
-      this.list = res.data
-      this.panelContents = res.data[6].panelContents
-      console.log(this.panelContents);
-    })
-    .catch(err => {})
-  },
+  methods: {},
+  mounted() {},
   watch: {},
   computed: {}
 };

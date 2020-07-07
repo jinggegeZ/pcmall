@@ -91,7 +91,7 @@ input {
   background: white;
   border-radius: 20px;
   color: black;
-  font-size: 30px;
+  font-size: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
