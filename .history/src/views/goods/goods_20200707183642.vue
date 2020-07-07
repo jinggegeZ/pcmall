@@ -20,37 +20,40 @@
         </div>
         <div class="nav">
           <div>
-            <div class="hot_c">
-              <div class="hot_d" v-for="(item,index) in arr" :key="index">
-                <div class="hot_stuff">
-                  <div class="hot_e">
-                    <img :src="item.productImageBig" alt />
-                  </div>
-                  <div class="hot_f">{{item.productName}}</div>
-                  <div class="hot_g">{{item.subTitle}}</div>
-                  <div class="hot_h">
-                    ￥{{item.salePrice}}
-                    <div class="hot_i">
-                      <Button>查看详情</Button>
-                      <Button type="primary">加入购物车</Button>
+              <div class="hot_c">
+                <div class="hot_d" v-for="(item,index) in arr" :key="index">
+                  <el-table
+                    :data="arr.slice((currentPage - 1) * pageSize, currentPage*pageSize)"
+                    style="width: 100%"
+                  >
+                    <div class="hot_stuff">
+                      <div class="hot_e">
+                        <img :src="item.productImageBig" alt />
+                      </div>
+                      <div class="hot_f">{{item.productName}}</div>
+                      <div class="hot_g">{{item.subTitle}}</div>
+                      <div class="hot_h">
+                        ￥{{item.salePrice}}
+                        <div class="hot_i">
+                          <Button>查看详情</Button>
+                          <Button type="primary">加入购物车</Button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </el-table>
+                  <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[20, 40, 60, 80]"
+                    :page-size="pageSize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="arr.length"
+                  ></el-pagination>
                 </div>
               </div>
             </div>
-          </div>
         </div>
-        <div class="foot">
-            <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page="currentPage"
-              :page-sizes="[20, 40, 60, 80]"
-              :page-size="pageSize"
-              layout="total, sizes, prev, pager, next, jumper"
-              :total="arr.length"
-            ></el-pagination>
-          </div>
       </div>
     </div>
   </div>
@@ -132,7 +135,6 @@ t-left {
   justify-content: center;
   align-items: center;
   box-shadow: 0 3px 8px -6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 25px;
 }
 
 .hot_d {
@@ -143,11 +145,5 @@ t-left {
   justify-content: center;
   align-items: center;
   background-color: white;
-}
-.foot {
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
 }
 </style>

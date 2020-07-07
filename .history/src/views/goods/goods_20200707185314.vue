@@ -39,8 +39,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="foot">
+          <div class="foot">
             <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
@@ -51,6 +50,7 @@
               :total="arr.length"
             ></el-pagination>
           </div>
+        </div>
       </div>
     </div>
   </div>

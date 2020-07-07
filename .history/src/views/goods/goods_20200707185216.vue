@@ -39,8 +39,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="foot">
+          <div>
             <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
@@ -51,6 +50,7 @@
               :total="arr.length"
             ></el-pagination>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -143,11 +143,5 @@ t-left {
   justify-content: center;
   align-items: center;
   background-color: white;
-}
-.foot {
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
 }
 </style>
