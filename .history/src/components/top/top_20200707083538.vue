@@ -20,7 +20,7 @@
             <div class="piaoqilai" @click="login">
               <Icon type="ios-contact" size="24" />
             </div>
-            <div class="dfl">
+            <div>
               <a class="top_c">
               <Icon type="md-cart" size="18" />
               <div class="top_d">
@@ -62,9 +62,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: rgb(150, 150, 150);
-}
 input {
   border: none;
   margin-left: 5px;
@@ -200,11 +197,6 @@ input {
   justify-content: center;
   align-items: center;
   background: rgb(150, 150, 150);
-  color:red;
-}
-.dfl {
-  
-  display: flex;
-  align-items: center;
+  color:white;
 }
 </style>

@@ -203,7 +203,6 @@ input {
   color:red;
 }
 .dfl {
-  
   display: flex;
   align-items: center;
 }

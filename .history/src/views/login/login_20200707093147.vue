@@ -28,7 +28,7 @@
           <div class="rem1">
             <div><Radio v-model="single">记住密码</Radio></div>
             <div class="rem2">
-              <a href="/register" >注册Xmall账号</a>
+              <a href="">注册Xmall账号</a>
               <div class="xainge"></div>
               <a href="">忘记密码？</a>
             </div>

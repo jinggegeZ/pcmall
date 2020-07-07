@@ -62,9 +62,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: rgb(150, 150, 150);
-}
 input {
   border: none;
   margin-left: 5px;
@@ -203,7 +200,6 @@ input {
   color:red;
 }
 .dfl {
-  
   display: flex;
   align-items: center;
 }

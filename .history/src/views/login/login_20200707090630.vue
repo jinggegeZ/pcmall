@@ -28,7 +28,7 @@
           <div class="rem1">
             <div><Radio v-model="single">记住密码</Radio></div>
             <div class="rem2">
-              <a href="/register" >注册Xmall账号</a>
+              <a href="">注册Xmall账号</a>
               <div class="xainge"></div>
               <a href="">忘记密码？</a>
             </div>
@@ -40,18 +40,6 @@
         </div>
         <div class="clk">
           <div class="click"><Button type="error" long>返回</Button></div>
-        </div>
-        <div class="down">
-          <div class="down1"></div>
-        </div>
-        <div class="down">
-          <div class="down2">
-            <div>其他方式登录：</div>
-            <div class="down3"><Icon type="logo-twitter" size="24" /></div>
-            <div class="down3"><Icon type="md-finger-print" size="24" /></div>
-            <div class="down3"><Icon type="logo-tux" size="24" /></div>
-            <div><Icon type="logo-xbox" /></div>
-          </div>
         </div>
       </div>
     </div>
@@ -154,7 +142,7 @@ export default {
 }
 .login {
   width: 450px;
-  height: 580px;
+  height: 600px;
   background: white;
   box-shadow: 0 8px 16px 0 #ddd;
   margin-top: 30px;
@@ -257,26 +245,5 @@ export default {
   width: 320px;
   height: 40px;
   margin-top: 15px;
-}
-.down {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-}
-.down1 {
-  width: 320px;
-  height: 1px;
-  background: rgb(150, 150, 150);
-  margin-top: 30px;
-}
-.down2 {
-  width: 320px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.down3 {
-  margin-right: 5px;
 }
 </style>

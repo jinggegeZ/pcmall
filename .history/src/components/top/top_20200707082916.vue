@@ -20,8 +20,7 @@
             <div class="piaoqilai" @click="login">
               <Icon type="ios-contact" size="24" />
             </div>
-            <div class="dfl">
-              <a class="top_c">
+            <a class="top_c">
               <Icon type="md-cart" size="18" />
               <div class="top_d">
                 <div class="top_e">
@@ -30,8 +29,7 @@
                 </div>
               </div>
             </a>
-            <div class="rrrr">0</div>
-            </div>
+            <div></div>
           </div>
         </div>
       </div>
@@ -62,9 +60,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: rgb(150, 150, 150);
-}
 input {
   border: none;
   margin-left: 5px;
@@ -152,6 +147,7 @@ input {
 }
 .top_c {
   position: relative;
+  padding: 20px 0;
 }
 .top_c:hover .top_d {
   visibility: visible;
@@ -192,19 +188,5 @@ input {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   color: red;
 }
-.rrrr {
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(150, 150, 150);
-  color:red;
-}
-.dfl {
-  
-  display: flex;
-  align-items: center;
-}
+
 </style>

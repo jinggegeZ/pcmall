@@ -62,9 +62,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: rgb(150, 150, 150);
-}
 input {
   border: none;
   margin-left: 5px;
@@ -200,10 +197,9 @@ input {
   justify-content: center;
   align-items: center;
   background: rgb(150, 150, 150);
-  color:red;
+  color:white;
 }
 .dfl {
-  
   display: flex;
   align-items: center;
 }

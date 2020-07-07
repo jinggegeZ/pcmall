@@ -10,7 +10,7 @@
           <Input v-model="number1" placeholder="账号" clearable style="width: 300px" />
         </div>
         <div class="b-input">
-          <Input v-model="password" placeholder="密码" clearable style="width: 300px" type="password" />
+          <Input v-model="number2" placeholder="密码" clearable style="width: 300px" type="password" />
         </div>
         <div class="vpat">
           <div ref="vaptcha" style="width:300px;height:36px">
@@ -28,29 +28,10 @@
           <div class="rem1">
             <div><Radio v-model="single">记住密码</Radio></div>
             <div class="rem2">
-              <a href="/register" >注册Xmall账号</a>
+              <a href="">注册Xmall账号</a>
               <div class="xainge"></div>
               <a href="">忘记密码？</a>
             </div>
-          </div>
-        </div>
-        <div class="clk">
-           <div v-if="this.number1 === '' ||this.password === ''" class="click"><Button type="success" long  disabled>登录</Button></div>
-           <div v-else class="click"><Button type="success" long  >登录</Button></div>
-        </div>
-        <div class="clk">
-          <div class="click"><Button type="error" long>返回</Button></div>
-        </div>
-        <div class="down">
-          <div class="down1"></div>
-        </div>
-        <div class="down">
-          <div class="down2">
-            <div>其他方式登录：</div>
-            <div class="down3"><Icon type="logo-twitter" size="24" /></div>
-            <div class="down3"><Icon type="md-finger-print" size="24" /></div>
-            <div class="down3"><Icon type="logo-tux" size="24" /></div>
-            <div><Icon type="logo-xbox" /></div>
           </div>
         </div>
       </div>
@@ -93,8 +74,7 @@ export default {
   data() {
     return {
       number1: "",
-      password: "",
-      single: false
+      number2: ""
     };
   },
   methods: {
@@ -154,7 +134,7 @@ export default {
 }
 .login {
   width: 450px;
-  height: 580px;
+  height: 600px;
   background: white;
   box-shadow: 0 8px 16px 0 #ddd;
   margin-top: 30px;
@@ -232,13 +212,11 @@ export default {
   align-items: center;
 }
 .rem1 {
-  width: 320px;
   display: flex;
   justify-content: space-between;
   align-items: center
 }
 .rem2 {
-  width: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -247,36 +225,5 @@ export default {
   height: 15px;
   width: 2px;
   background: rgb(150, 150, 150);
-}
-.clk {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.click {
-  width: 320px;
-  height: 40px;
-  margin-top: 15px;
-}
-.down {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-}
-.down1 {
-  width: 320px;
-  height: 1px;
-  background: rgb(150, 150, 150);
-  margin-top: 30px;
-}
-.down2 {
-  width: 320px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.down3 {
-  margin-right: 5px;
 }
 </style>

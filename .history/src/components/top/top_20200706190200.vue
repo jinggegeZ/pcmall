@@ -20,18 +20,15 @@
             <div class="piaoqilai" @click="login">
               <Icon type="ios-contact" size="24" />
             </div>
-            <div class="dfl">
-              <a class="top_c">
-              <Icon type="md-cart" size="18" />
-              <div class="top_d">
-                <div class="top_e">
-                  <div class="tooltip-triangle"></div>
-                  <div class="top_f">123</div>
-                </div>
-              </div>
-            </a>
-            <div class="rrrr">0</div>
+            <a class="top_c">
+          <Icon type="md-cart" size="18" />
+          <div class="top_d">
+            <div class="top_e">
+              <div class="tooltip-triangle"></div>
+              <div class="top_f">123</div>
             </div>
+          </div>
+        </a>
           </div>
         </div>
       </div>
@@ -51,8 +48,8 @@ export default {
     backhome() {
       this.$router.push("/");
     },
-    login() {
-      this.$router.push("/login");
+    login(){
+      this.$router.push('/login')
     }
   },
   mounted() {},
@@ -62,9 +59,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: rgb(150, 150, 150);
-}
 input {
   border: none;
   margin-left: 5px;
@@ -149,62 +143,5 @@ input {
 }
 .piaoqilai :hover {
   color: white;
-}
-.top_c {
-  position: relative;
-}
-.top_c:hover .top_d {
-  visibility: visible;
-}
-.top_d {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 2;
-  width: 360px;
-  min-height: 333px;
-  visibility: hidden;
-}
-.top_e {
-  margin-top: 46px;
-  position: relative;
-  min-height: 300px;
-}
-.tooltip-triangle {
-  width: 0;
-  height: 0;
-  border-right: 10px solid transparent;
-  border-left: 10px solid transparent;
-  border-bottom: 10px solid white;
-  position: absolute;
-  top: -20px;
-  right: 20px;
-  z-index: 1;
-  width: 20px;
-  height: 20px;
-}
-.top_f {
-  width: 100%;
-  background-color: white;
-  border-radius: 12px;
-  min-height: 280px;
-  padding: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  color: red;
-}
-.rrrr {
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(150, 150, 150);
-  color:red;
-}
-.dfl {
-  
-  display: flex;
-  align-items: center;
 }
 </style>
