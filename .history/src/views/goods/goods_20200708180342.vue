@@ -44,7 +44,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="hot_c" v-else-if="sort === 1">
+            <div class="hot_c" v-else-if="sort === 1">
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -79,7 +79,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <div class="page">
@@ -133,7 +133,7 @@ export default {
     //降序
     down() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: 1})
+        .allGoods({ page: 1, size: 30, sort: -1 })
         .then(res => {
           this.arr = res.data;
           console.log(this.arr);
@@ -144,7 +144,7 @@ export default {
     //升序
     up() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: -1 })
+        .allGoods({ page: 1, size: 30, sort: 1 })
         .then(res => {
           this.arr = res.data;
            console.log(this.arr);

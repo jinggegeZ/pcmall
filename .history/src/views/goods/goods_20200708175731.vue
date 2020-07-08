@@ -44,7 +44,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="hot_c" v-else-if="sort === 1">
+            <div class="hot_c" v-else-if="sort === 1">
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -79,7 +79,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <div class="page">
@@ -112,8 +112,9 @@ export default {
       arr: [],
       shoplist: [],
       sort: "",
+      //每页显示10条
       total: "",
-      currentPage:1,
+      currentPage:2,
       pageSize: 8,
       pageSizeGroup:[8,16,24,32]
     };
@@ -133,10 +134,9 @@ export default {
     //降序
     down() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: 1})
+        .allGoods({ page: 1, size: 30, sort: -1 })
         .then(res => {
           this.arr = res.data;
-          console.log(this.arr);
           this.shoplist = this.arr;
         })
         .catch(err => {});
@@ -144,10 +144,9 @@ export default {
     //升序
     up() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: -1 })
+        .allGoods({ page: 1, size: 30, sort: 1 })
         .then(res => {
           this.arr = res.data;
-           console.log(this.arr);
           this.shoplist = this.arr;
         })
         .catch(err => {});

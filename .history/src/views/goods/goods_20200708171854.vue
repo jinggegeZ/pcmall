@@ -44,7 +44,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="hot_c" v-else-if="sort === 1">
+            <div class="hot_c" v-else-if="sort === 1">
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -79,7 +79,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <div class="page">
@@ -87,7 +87,6 @@
             :total="Number(total)"
             :page-size="pageSize"
             :page-size-opts="pageSizeGroup"
-            :current="currentPage"
             @on-change="changepage"
             @on-page-size-change="changeSizePage"
             show-total
@@ -112,14 +111,13 @@ export default {
       arr: [],
       shoplist: [],
       sort: "",
-      total: "",
-      currentPage:1,
+      //每页显示10条
       pageSize: 8,
+      total: "",
       pageSizeGroup:[8,16,24,32]
     };
   },
   methods: {
-    //默认请求
     moren() {
       this.$api
         .allGoods({ page: 1, size: 30, sort: "" })
@@ -130,56 +128,49 @@ export default {
         })
         .catch(err => {});
     },
-    //降序
     down() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: 1})
+        .allGoods({ page: 1, size: 30, sort: 1 })
         .then(res => {
           this.arr = res.data;
-          console.log(this.arr);
           this.shoplist = this.arr;
         })
         .catch(err => {});
     },
-    //升序
     up() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: -1 })
+        .allGoods({ page: 1, size: 30, sort: -1 })
         .then(res => {
           this.arr = res.data;
-           console.log(this.arr);
           this.shoplist = this.arr;
         })
         .catch(err => {});
     },
     enter() {},
-    //改变页码
     changepage(index) {
-      this.currentPage=index;
-    this.resquestInfo(this.currentPage,this.pageSize);
+      // let _start = (index - 1) * this.pageSize;
+      // let _end = index * this.pageSize;
+      // this.shoplist = this.arr.slice(_start, _end);
+      console.log("页码：",index);
     },
     changeSizePage(val){
-      //页面大小
-      this.pageSize=val;
-      this.resquestInfo(this.currentPage,this.pageSize);
+      console.log("页面大小：",val);
     },
-    //跳转详情
     details(item) {
       this.$router.push({
         path: "deta",
         query: { item: item }
       });
     },
-    //分页请求
-    resquestInfo(num,size){
+    resquestInfo(){
       this.$api
-      .allGoods({ page: num, size:size })
+      .allGoods({ page: 1, size:10 })
       .then(res => {
         this.arr = res.data;
         this.total = res.total;
         this.shoplist = this.arr;
         console.log(res);
-        if (this.total < this.pageSize) {
+        if (this.arrcount < this.pageSize) {
           this.shoplist = this.arr;
         } else {
           this.arr = this.arr.slice(0, this.pageSize);
@@ -188,23 +179,8 @@ export default {
       .catch(err => {});
     }
   },
-  //默认请求
   mounted() {
-    // this.resquestInfo();
-    this.$api
-      .allGoods({ page: this.currentPage, size:this.pageSize })
-      .then(res => {
-        this.arr = res.data;
-        this.total = res.total;
-        this.shoplist = this.arr;
-        console.log(res);
-        if (this.total < this.pageSize) {
-          this.shoplist = this.arr;
-        } else {
-          this.arr = this.arr.slice(0, this.pageSize);
-        }
-      })
-      .catch(err => {});
+    
   },
   watch: {},
   computed: {}

@@ -133,7 +133,7 @@ export default {
     //降序
     down() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: 1})
+        .allGood({ page: 1, size: 30, sort: -1})
         .then(res => {
           this.arr = res.data;
           console.log(this.arr);
@@ -144,7 +144,7 @@ export default {
     //升序
     up() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: -1 })
+        .allGood({ page: 1, size: 30, sort: 1 })
         .then(res => {
           this.arr = res.data;
            console.log(this.arr);
