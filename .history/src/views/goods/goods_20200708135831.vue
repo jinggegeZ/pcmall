@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="hot_c" v-else-if="sort === 1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in shoplist1" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="hot_c" v-else-if="sort === -1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in shoplist2" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -92,7 +92,11 @@ export default {
       value1: "",
       value2: "",
       arr: [],
+      arr1:[],
+      arr2:[],
       shoplist:[],
+      shoplist1:[],
+      shoplist2:[],
       sort:'',
       arrcount:0,
       //每页显示10条
@@ -115,16 +119,16 @@ export default {
     down(){
       this.$api.allGoods({page:1,size:30, sort:1})
       .then(res => {
-         this.arr = res.data;
-         this.shoplist = this.arr
+         this.arr1 = res.data;
+         this.shoplist1 = this.arr1
       })
       .catch(err => {});
     },
     up(){
       this.$api.allGoods({ page:1, size:30, sort:-1})
       .then(res => {
-        this.arr = res.data
-        this.shoplist = this.arr
+        this.arr2 = res.data
+        this.shoplist2 = this.arr2
       }).catch(err =>{})
     },
     enter(){

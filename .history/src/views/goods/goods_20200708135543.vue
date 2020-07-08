@@ -31,7 +31,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button @click="details">查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="hot_c" v-else-if="sort === 1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in shoplist1" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -49,7 +49,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button @click="details">查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="hot_c" v-else-if="sort === -1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in shoplist2" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -67,7 +67,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button @click="details">查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -92,11 +92,16 @@ export default {
       value1: "",
       value2: "",
       arr: [],
+      arr1:[],
+      arr2:[],
       shoplist:[],
+      shoplist1:[],
+      shoplist2:[],
       sort:'',
       arrcount:0,
       //每页显示10条
       pageSize:10,
+      productId:""
     };
   },
   methods: {
@@ -115,16 +120,16 @@ export default {
     down(){
       this.$api.allGoods({page:1,size:30, sort:1})
       .then(res => {
-         this.arr = res.data;
-         this.shoplist = this.arr
+         this.arr1 = res.data;
+         this.shoplist1 = this.arr1
       })
       .catch(err => {});
     },
     up(){
       this.$api.allGoods({ page:1, size:30, sort:-1})
       .then(res => {
-        this.arr = res.data
-        this.shoplist = this.arr
+        this.arr2 = res.data
+        this.shoplist2 = this.arr2
       }).catch(err =>{})
     },
     enter(){
@@ -135,10 +140,10 @@ export default {
       let _end = index*this.pageSize;
       this.shoplist = this.arr.slice(_start,_end)
     },
-    details(item){
+    details(){
       this.$router.push({
         path:'deta',
-        query:{item: item}
+        query:{productId : this.productId}
       })
     }
   },

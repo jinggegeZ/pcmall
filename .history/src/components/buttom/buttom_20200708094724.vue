@@ -11,37 +11,38 @@
           </div>
           <div class="bot_b">
             <div class="bot_c">服务支持</div>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">官方开源</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">项目前端</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">项目后端</a>
-            
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
           </div>
           <div class="bot_b">
             <div class="bot_c">自助服务</div>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">个人微博</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">个人简介</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">个人视频</a>
-            
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
           </div>
           <div class="bot_b">
             <div class="bot_c">其他项目</div>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">Xpay支付系统</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">数据共享</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">待开发...</a>
-            
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
           </div>
           <div class="bot_b">
             <div class="bot_c">友情链接</div>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">宇cccc</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">Smarttisan</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">vue</a>
-            
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
           </div>
           <div class="bot_b">
             <div class="bot_c">关注我吧</div>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">腾讯QQ</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">新浪微博</a>
-            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">官方邮箱</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
+            <a href="http://xmall.exrick.cn/#/thanks" target="_blank">购买指南</a>
           </div>
         </div>
         <div class="bot_c">

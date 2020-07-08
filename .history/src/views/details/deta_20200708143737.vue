@@ -3,7 +3,6 @@
     <div class="center_a">
       <!-- 商品 -->
       <div class="goods">
-      
         <!-- 轮播 -->
         <div class="goods_a"><img :src="item.productImageBig" alt="" width="300px"></div>
         <!-- 操作 -->
@@ -11,7 +10,7 @@
           <div class="stuff_1">
             <div class="stuff_a">{{item.productName}}</div>
             <div class="stuff_d">
-              <span class="stuff_b">{{item.subTitle}}</span>
+              <span class="stuff_b">此仅为支付测试商品 拍下不会发货</span>
               <span class="stuff_c">¥{{item.salePrice}}.00</span>
             </div>
           </div>

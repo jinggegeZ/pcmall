@@ -18,16 +18,8 @@ export default {
   // sort: 排序方式 1为升序 -1为降序
   // priceGt: 价格区间 从多少开始
   // priceLte: 价格区间 到哪结束
-  allGoods({page, size,sort,priceGt,priceLte}) {
-    if(page&&size){
-      return service.get(`/goods/allGoods?page=${page}&size=${size}`)
-    }
-    if(page&&size&&sort){
-      return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}`)
-    }
-    // if({page, size,sort,priceGt,priceLte}){
-    //   return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}&priceGt=${priceGt}&priceLte=${priceLte}`)
-    // }
+  allGoods({page, size,sort}) {
+    return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}`)
   },
   //  搜索商品(4)
   //   参数:

@@ -3,7 +3,6 @@
     <div class="center_a">
       <!-- 商品 -->
       <div class="goods">
-      
         <!-- 轮播 -->
         <div class="goods_a"><img :src="item.productImageBig" alt="" width="300px"></div>
         <!-- 操作 -->
@@ -29,6 +28,7 @@
       <div class="detail" >
         <div class="hot_b">产品信息</div>
         <div class="hot_d">{{arr.productName}}</div>
+        <div class="hot_d">{{arr.subTitle}}</div>
         <div class="hot_c"><img :src="arr.productImageBig" alt=""></div>
         <div class="hot_c" v-for="(item,index) in list" :key="index">
           <img :src="item" alt="">

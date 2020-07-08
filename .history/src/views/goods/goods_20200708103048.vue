@@ -21,7 +21,7 @@
         <div class="nav">
           <div>
             <div class="hot_c" v-if="sort === ''" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in arr" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -31,7 +31,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="hot_c" v-else-if="sort === 1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+              <div class="hot_d" v-for="(item,index) in arr" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -49,15 +49,15 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="hot_c" v-else-if="sort === -1" >
-              <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
+            <div class="hot_c" v-else >
+              <div class="hot_d" v-for="(item,index) in arr" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
                     <img :src="item.productImageBig" alt />
@@ -67,7 +67,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="page"> <Page :total="arrcount" :page-size="pageSize" @on-change="changepage" show-total show-sizer /></div>
+        
       </div>
     </div>
   </div>
@@ -91,24 +91,25 @@ export default {
     return {
       value1: "",
       value2: "",
+      currentPage: 1,
+      pageSize: 10,
       arr: [],
-      shoplist:[],
-      sort:'',
-      arrcount:0,
-      //每页显示10条
-      pageSize:10,
+      sort:''
     };
   },
   methods: {
+    handleSizeChange(val) {
+      this.pageSize = val;
+    },
+    handleCurrentChange(val) {
+      this.currentPage = val;
+    },
     moren(){
       this.$api
       .allGoods({ page: 1, size: 30, sort:''})
       .then(res => {
         this.arr = res.data;
-        this.shoplist = this.arr
-        console.log(this.shoplist);
-        
-        
+        console.log(this.arr);
       })
       .catch(err => {});
     },
@@ -116,47 +117,21 @@ export default {
       this.$api.allGoods({page:1,size:30, sort:1})
       .then(res => {
          this.arr = res.data;
-         this.shoplist = this.arr
       })
       .catch(err => {});
     },
     up(){
-      this.$api.allGoods({ page:1, size:30, sort:-1})
+      this.$api.allGoods({page:1,size:30,sort:-1})
       .then(res => {
         this.arr = res.data
-        this.shoplist = this.arr
       }).catch(err =>{})
     },
     enter(){
       
-    },
-    changepage(index){
-      let _start = (index-1)*this.pageSize;
-      let _end = index*this.pageSize;
-      this.shoplist = this.arr.slice(_start,_end)
-    },
-    details(item){
-      this.$router.push({
-        path:'deta',
-        query:{item: item}
-      })
     }
   },
   mounted() {
-    this.$api
-      .allGoods({ page: 1, size:20,})
-      .then(res => {
-        this.arr = res.data;
-        this.arrcount= this.arr.length
-        this.shoplist = this.arr
-        if(this.arrcount<this.pageSize){
-          this.shoplist = this.arr
-        }
-        else{
-          this.arr = this.arr.slice(0,this.pageSize)
-        }
-      })
-      .catch(err => {});
+    
   },
   watch: {},
   computed: {}
@@ -226,13 +201,5 @@ t-left {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-}
-.page {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 15px;
-  align-items: center;
 }
 </style>

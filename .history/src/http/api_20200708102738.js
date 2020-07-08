@@ -19,15 +19,15 @@ export default {
   // priceGt: 价格区间 从多少开始
   // priceLte: 价格区间 到哪结束
   allGoods({page, size,sort,priceGt,priceLte}) {
-    if(page&&size){
-      return service.get(`/goods/allGoods?page=${page}&size=${size}`)
+    if({}){
+      return service.get(`/goods/allGoods`)
     }
-    if(page&&size&&sort){
+    if({page,size,sort}){
       return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}`)
     }
-    // if({page, size,sort,priceGt,priceLte}){
-    //   return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}&priceGt=${priceGt}&priceLte=${priceLte}`)
-    // }
+    if({page, size,sort,priceGt,priceLte}){
+      return service.get(`/goods/allGoods?page=${page}&size=${size}&sort=${sort}&priceGt=${priceGt}&priceLte=${priceLte}`)
+    }
   },
   //  搜索商品(4)
   //   参数:

@@ -31,7 +31,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -49,14 +49,14 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="hot_c" v-else-if="sort === -1" >
+            <div class="hot_c" v-else >
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -67,7 +67,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(item)">查看详情</Button>
+                      <Button>查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -96,10 +96,16 @@ export default {
       sort:'',
       arrcount:0,
       //每页显示10条
-      pageSize:10,
+      pageSize:10
     };
   },
   methods: {
+    handleSizeChange(val) {
+      this.pageSize = val;
+    },
+    handleCurrentChange(val) {
+      this.currentPage = val;
+    },
     moren(){
       this.$api
       .allGoods({ page: 1, size: 30, sort:''})
@@ -121,7 +127,7 @@ export default {
       .catch(err => {});
     },
     up(){
-      this.$api.allGoods({ page:1, size:30, sort:-1})
+      this.$api.allGoods({page:1,size:30,sort:-1})
       .then(res => {
         this.arr = res.data
         this.shoplist = this.arr
@@ -134,27 +140,22 @@ export default {
       let _start = (index-1)*this.pageSize;
       let _end = index*this.pageSize;
       this.shoplist = this.arr.slice(_start,_end)
-    },
-    details(item){
-      this.$router.push({
-        path:'deta',
-        query:{item: item}
-      })
     }
   },
   mounted() {
     this.$api
-      .allGoods({ page: 1, size:20,})
+      .allGoods({ page: 1, size: 30,})
       .then(res => {
+       
         this.arr = res.data;
         this.arrcount= this.arr.length
-        this.shoplist = this.arr
         if(this.arrcount<this.pageSize){
           this.shoplist = this.arr
         }
         else{
           this.arr = this.arr.slice(0,this.pageSize)
         }
+        
       })
       .catch(err => {});
   },

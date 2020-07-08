@@ -3,7 +3,6 @@
     <div class="center_a">
       <!-- 商品 -->
       <div class="goods">
-      
         <!-- 轮播 -->
         <div class="goods_a"><img :src="item.productImageBig" alt="" width="300px"></div>
         <!-- 操作 -->

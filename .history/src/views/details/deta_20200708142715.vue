@@ -3,7 +3,6 @@
     <div class="center_a">
       <!-- 商品 -->
       <div class="goods">
-      
         <!-- 轮播 -->
         <div class="goods_a"><img :src="item.productImageBig" alt="" width="300px"></div>
         <!-- 操作 -->
@@ -11,7 +10,7 @@
           <div class="stuff_1">
             <div class="stuff_a">{{item.productName}}</div>
             <div class="stuff_d">
-              <span class="stuff_b">{{item.subTitle}}</span>
+              <span class="stuff_b">此仅为支付测试商品 拍下不会发货</span>
               <span class="stuff_c">¥{{item.salePrice}}.00</span>
             </div>
           </div>
@@ -27,12 +26,8 @@
       </div>
       <!-- 商品详情 -->
       <div class="detail" >
-        <div class="hot_b">产品信息</div>
-        <div class="hot_d">{{arr.productName}}</div>
-        <div class="hot_c"><img :src="arr.productImageBig" alt=""></div>
-        <div class="hot_c" v-for="(item,index) in list" :key="index">
-          <img :src="item" alt="">
-        </div>
+        <div class="hot_b">{{arr.productName}}</div>
+        <div class="hot_c">{{arr.detail}}</div>
       </div>
     </div>
   </div>
@@ -45,8 +40,7 @@ export default {
       buttonSize: 'large',
       item:{},
       productId:"",
-      arr:{},
-      list:[]
+      arr:{}
     };
   },
   components: {},
@@ -60,9 +54,7 @@ export default {
     this.$api.goodsDetail(this.productId)
     .then(res => {
       this.arr = res.data.result
-      this.list = res.data.result.productImageSmall
       console.log(this.arr);
-      console.log(this.list);
     }).catch(err => {})
   },
   watch: {},
@@ -153,15 +145,6 @@ export default {
 }
 .hot_c{
   width: 100%;
-  
-}
-.hot_d {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
-  
+  height: 600px;
 }
 </style>
