@@ -45,7 +45,7 @@
 details(item){
       this.$router.push({
         path:'deta',
-        query:{item: item}
+        query:{productId: this.item.productId}
       })
     }
    },

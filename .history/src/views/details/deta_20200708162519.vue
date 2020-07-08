@@ -35,7 +35,11 @@
       <!-- 商品详情 -->
       <div class="detail" >
         <div class="hot_b">产品信息</div>
-        <div v-html="arr.detail"></div>
+        <div class="hot_d">{{arr.productName}}</div>
+        <div class="hot_c"><img :src="arr.productImageBig" alt=""></div>
+        <div class="hot_c" v-for="(item,index) in list" :key="index">
+          <img :src="item" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -56,14 +60,13 @@ export default {
   methods: {},
   mounted() {
     this.item = this.$route.query.item
-    
+    console.log(this.item);
     this.productId = this.item.productId
-    
+    console.log(this.productId);
     this.$api.goodsDetail(this.productId)
     .then(res => {
       this.arr = res.data.result
       this.list = res.data.result.productImageSmall
-      console.log(this.ass);
     }).catch(err => {})
   },
   watch: {},
@@ -170,8 +173,7 @@ export default {
 }
 .hot_c{
   width: 100%;
-  display: flex;
-  justify-content: center;
+  
 }
 .hot_d {
   width: 100%;
@@ -182,5 +184,4 @@ export default {
   font-size: 36px;
   
 }
-
 </style>

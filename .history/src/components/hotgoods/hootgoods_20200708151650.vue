@@ -42,12 +42,7 @@
      }
    },
    methods: {
-details(item){
-      this.$router.push({
-        path:'deta',
-        query:{item: item}
-      })
-    }
+
    },
    mounted() {
 

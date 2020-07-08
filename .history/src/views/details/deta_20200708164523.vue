@@ -35,7 +35,7 @@
       <!-- 商品详情 -->
       <div class="detail" >
         <div class="hot_b">产品信息</div>
-        <div v-html="arr.detail"></div>
+        <div v-html="ass.detail"></div>
       </div>
     </div>
   </div>
@@ -62,6 +62,7 @@ export default {
     this.$api.goodsDetail(this.productId)
     .then(res => {
       this.arr = res.data.result
+      this.ass = res.data.result
       this.list = res.data.result.productImageSmall
       console.log(this.ass);
     }).catch(err => {})
@@ -182,5 +183,4 @@ export default {
   font-size: 36px;
   
 }
-
 </style>

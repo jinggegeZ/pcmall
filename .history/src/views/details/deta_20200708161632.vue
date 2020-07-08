@@ -5,12 +5,7 @@
       <div class="goods">
         <!-- 轮播 -->
         <div class="goods_a">
-          <div class="gleft">
-            <div class="glimg" v-for="(item,index) in list" :key="index">
-            <img :src="item" alt="" width="75px">
-            </div>
-            
-          </div>
+          <div class="gleft"></div>
           <div class="gright"><img :src="item.picUrl" alt="" width="300px"></div>
         </div>
         <!-- 操作 -->
@@ -35,7 +30,11 @@
       <!-- 商品详情 -->
       <div class="detail" >
         <div class="hot_b">产品信息</div>
-        <div v-html="arr.detail"></div>
+        <div class="hot_d">{{arr.productName}}</div>
+        <div class="hot_c"><img :src="arr.productImageBig" alt=""></div>
+        <div class="hot_c" v-for="(item,index) in list" :key="index">
+          <img :src="item" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -56,14 +55,13 @@ export default {
   methods: {},
   mounted() {
     this.item = this.$route.query.item
-    
+    console.log(this.item);
     this.productId = this.item.productId
-    
+    console.log(this.productId);
     this.$api.goodsDetail(this.productId)
     .then(res => {
       this.arr = res.data.result
       this.list = res.data.result.productImageSmall
-      console.log(this.ass);
     }).catch(err => {})
   },
   watch: {},
@@ -87,7 +85,7 @@ export default {
   border: 1px solid #dcdcdc;
   border-color: rgba(0, 0, 0, 0.14);
   box-shadow: 0 3px 8px -6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  padding: 60px;
   margin: 20px 0;
   height: 442px;
   display: flex;
@@ -96,26 +94,17 @@ export default {
 .goods_a {
   width: 50%;
   height: 100%;
-  display: flex;
-
 }
 .stuff {
   width: 50%;
   height: 100%;
 }
 .gleft{
-  width: 30%;
+  width: 20%;
   height: 100%;
 }
 .gright{
-  width: 70%;
-}
-.glimg {
-  height: 80px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 30%;
 }
 .stuff_a {
   font-size: 24px;
@@ -170,8 +159,7 @@ export default {
 }
 .hot_c{
   width: 100%;
-  display: flex;
-  justify-content: center;
+  
 }
 .hot_d {
   width: 100%;
@@ -182,5 +170,4 @@ export default {
   font-size: 36px;
   
 }
-
 </style>

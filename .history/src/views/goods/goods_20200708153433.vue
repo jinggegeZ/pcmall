@@ -3,15 +3,9 @@
     <div class="box">
       <div class="box1">
         <div class="top">
-          <a>
-            <div class="font" @click="moren">综合排序</div>
-          </a>
-          <a>
-            <div class="font" @click="down">价格从低到高</div>
-          </a>
-          <a>
-            <div class="font" @click="up">价格从高到低</div>
-          </a>
+          <a><div class="font" @click="moren">综合排序</div></a>
+          <a><div class="font" @click="down">价格从低到高</div></a>
+          <a><div class="font" @click="up">价格从高到低</div></a>
           <div class="t-right">
             <div>
               <Input v-model="value1" size="small" placeholder="价格" style="width:60px" />
@@ -26,7 +20,7 @@
         </div>
         <div class="nav">
           <div>
-            <div class="hot_c" v-if="sort === ''">
+            <div class="hot_c" v-if="sort === ''" >
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -44,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <div class="hot_c" v-else-if="sort === 1">
+            <div class="hot_c" v-else-if="sort === 1" >
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -62,7 +56,7 @@
                 </div>
               </div>
             </div>
-            <div class="hot_c" v-else-if="sort === -1">
+            <div class="hot_c" v-else-if="sort === -1" >
               <div class="hot_d" v-for="(item,index) in shoplist" :key="index">
                 <div class="hot_stuff">
                   <div class="hot_e">
@@ -82,15 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="page">
-          <Page
-            :total="Number(total)"
-            :page-size="pageSize"
-            @on-change="changepage"
-            show-total
-            show-sizer
-          />
-        </div>
+        <div class="page"> <Page :total="arrcount" :page-size="pageSize" @on-change="changepage" show-total show-sizer /></div>
       </div>
     </div>
   </div>
@@ -106,67 +92,68 @@ export default {
       value1: "",
       value2: "",
       arr: [],
-      shoplist: [],
-      sort: "",
+      shoplist:[],
+      sort:'',
+      arrcount:0,
       //每页显示10条
-      pageSize: 10,
-      total: ""
+      pageSize:10,
     };
   },
   methods: {
-    moren() {
+    moren(){
       this.$api
-        .allGoods({ page: 1, size: 30, sort: "" })
-        .then(res => {
-          this.arr = res.data;
-          this.shoplist = this.arr;
-          console.log(this.shoplist);
-        })
-        .catch(err => {});
+      .allGoods({ page: 1, size: 30, sort:''})
+      .then(res => {
+        this.arr = res.data;
+        this.shoplist = this.arr
+        console.log(this.shoplist);
+        
+        
+      })
+      .catch(err => {});
     },
-    down() {
-      this.$api
-        .allGoods({ page: 1, size: 30, sort: 1 })
-        .then(res => {
-          this.arr = res.data;
-          this.shoplist = this.arr;
-        })
-        .catch(err => {});
+    down(){
+      this.$api.allGoods({page:1,size:30, sort:1})
+      .then(res => {
+         this.arr = res.data;
+         this.shoplist = this.arr
+      })
+      .catch(err => {});
     },
-    up() {
-      this.$api
-        .allGoods({ page: 1, size: 30, sort: -1 })
-        .then(res => {
-          this.arr = res.data;
-          this.shoplist = this.arr;
-        })
-        .catch(err => {});
+    up(){
+      this.$api.allGoods({ page:1, size:30, sort:-1})
+      .then(res => {
+        this.arr = res.data
+        this.shoplist = this.arr
+      }).catch(err =>{})
     },
-    enter() {},
-    changepage(index) {
-      let _start = (index - 1) * this.pageSize;
-      let _end = index * this.pageSize;
-      this.shoplist = this.arr.slice(_start, _end);
+    enter(){
+      
     },
-    details(item) {
+    changepage(index){
+      let _start = (index-1)*this.pageSize;
+      let _end = index*this.pageSize;
+      this.shoplist = this.arr.slice(_start,_end)
+    },
+    details(item){
       this.$router.push({
-        path: "deta",
-        query: { item: item }
-      });
+        path:'deta',
+        query:{item: item}
+      })
     }
   },
   mounted() {
     this.$api
-      .allGoods({ page: 1, size: 20 })
+      .allGoods({ page: 1, size:20,})
       .then(res => {
         this.arr = res.data;
-        this.total = res.tatal;
-        this.shoplist = this.arr;
-        console.log(res);
-        if (this.arrcount < this.pageSize) {
-          this.shoplist = this.arr;
-        } else {
-          this.arr = this.arr.slice(0, this.pageSize);
+        this.arrcount= this.arr.length
+        this.shoplist = this.arr
+        if(this.arrcount<this.pageSize){
+          this.shoplist = this.arr
+        }
+        else{
+          this.arr = this.arr.slice(0,this.pageSize)
         }
       })
       .catch(err => {});
@@ -177,12 +164,12 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-a {
-  color: #666;
-}
-a:hover {
-  color: #5079d9;
-}
+ a {
+   color: #666
+ }
+ a:hover {
+   color: #5079d9
+ }
 .box {
   width: 100%;
   display: flex;
@@ -235,10 +222,10 @@ t-left {
   background-color: white;
 }
 .foot {
-  height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 .page {
   width: 100%;

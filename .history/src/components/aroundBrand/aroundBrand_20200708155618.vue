@@ -18,7 +18,7 @@
               <div class="hot_h">
               ￥{{item1.salePrice}}
               <div class="hot_i">
-                  <Button @click="details(item1)">查看详情</Button>
+                  <Button @click="details(item)">查看详情</Button>
                   <Button type="primary">加入购物车</Button>
               </div>
               </div>
@@ -48,10 +48,10 @@
      }
    },
    methods: {
- details(item1){
+ details(item){
       this.$router.push({
         path:'deta',
-        query:{item: item1}
+        query:{item: item}
       })
     }
    },

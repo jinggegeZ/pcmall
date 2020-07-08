@@ -12,7 +12,7 @@
               <div class="hot_h">
               ￥{{item.salePrice}}
               <div class="hot_i">
-                  <Button @click="details(item)" >查看详情</Button>
+                  <Button >查看详情</Button>
                   <Button type="primary">加入购物车</Button>
               </div>
               </div>
@@ -42,12 +42,7 @@
      }
    },
    methods: {
-details(item){
-      this.$router.push({
-        path:'deta',
-        query:{item: item}
-      })
-    }
+
    },
    mounted() {
 
