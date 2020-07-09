@@ -53,8 +53,23 @@ export default {
     },
     //加入购物车
     addcart(item){
-      if(localStorage.username){
-        this.$api.getAddCart(item.productId)
+      // if(localStorage.username){
+      //   this.$api.getAddCart(item.productId)
+      // .then(res =>  {
+      //   if(res.code === 200){
+      //     this.$Message.success(res.msg)
+      //   }
+      //   else{
+      //     this.$Message.error(res.msg)
+      //   }
+      // }).catch(err => {
+      //   console.log(err);
+      // })
+      // }
+      // else{
+      //   this.$Message.error('您还没有登录请先登录')
+      // }
+       this.$api.getAddCart(item.productId)
       .then(res =>  {
         if(res.code === 200){
           this.$Message.success(res.msg)
@@ -65,11 +80,6 @@ export default {
       }).catch(err => {
         console.log(err);
       })
-      }
-      else{
-        this.$Message.error('您还没有登录请先登录')
-      }
-      
     }
   },
   mounted() {

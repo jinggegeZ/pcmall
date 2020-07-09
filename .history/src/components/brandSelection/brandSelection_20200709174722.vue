@@ -61,7 +61,7 @@
     addcart(item1){
       console.log(item1);
       if(localStorage.username){
-        this.$api.getAddCart(item1.productId)
+        this.$api.addCart(item1.productId)
       .then(res =>  {
         if(res.code === 200){
           this.$Message.success(res.msg)

@@ -69,7 +69,6 @@ export default {
       else{
         this.$Message.error('您还没有登录请先登录')
       }
-      
     }
   },
   mounted() {

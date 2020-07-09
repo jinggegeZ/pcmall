@@ -26,7 +26,7 @@
             <div class="stuff_e">加减数量</div>
           </div>
           <div class="stuff_3">
-            <Button type="primary" :size="buttonSize" @click=addcart>加入购物车</Button>
+            <Button type="primary" :size="buttonSize" @click=addcart(item)>加入购物车</Button>
             <Button :size="buttonSize">现在购买</Button>
           </div>
         </div>
@@ -59,24 +59,8 @@ export default {
       this.productImageBig = item
     },
     addcart(item){
-      if(localStorage.username){
-        this.$api.getAddCart(this.ids)
-      .then(res =>  {
-        if(res.code === 200){
-          this.$Message.success(res.msg)
-        }
-        else{
-          this.$Message.error(res.msg)
-        }
-      }).catch(err => {
-        console.log(err);
-      })
-      }
-      else{
-        this.$Message.error('您还没有登录请先登录')
-      }
+      this.$api.getAddCart(item.)
     }
-    
   },
   mounted() {
     // let item = {}

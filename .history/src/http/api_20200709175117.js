@@ -55,7 +55,7 @@ export default {
   },
 
   // 8.获取加入购物车 productId: 商品id
-  getAddCart(productId) {
+  addCart(productId) {
     return service.post('/goods/addCart', {
       productId
     })

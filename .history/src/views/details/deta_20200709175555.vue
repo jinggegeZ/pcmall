@@ -26,7 +26,7 @@
             <div class="stuff_e">加减数量</div>
           </div>
           <div class="stuff_3">
-            <Button type="primary" :size="buttonSize" @click=addcart>加入购物车</Button>
+            <Button type="primary" :size="buttonSize" @click=addcart(item)>加入购物车</Button>
             <Button :size="buttonSize">现在购买</Button>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default {
     },
     addcart(item){
       if(localStorage.username){
-        this.$api.getAddCart(this.ids)
+        this.$api.getAddCart(item.productId)
       .then(res =>  {
         if(res.code === 200){
           this.$Message.success(res.msg)
