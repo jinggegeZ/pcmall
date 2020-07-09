@@ -152,15 +152,12 @@ export default {
       this.resquestInfo(this.currentPage, this.pageSize);
     },
     //跳转详情
-    details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
+    details(item) {
+     let aaa = this.$router.resolve({
         name: "deta",
-        query: {id: this.shoplist[index].productId},
-        
+        query: {item: item}
       });
-      window.open(routeData.href, "_blank");
-
+      window.open(aaa.herf, "_blank");
     },
     //分页请求
     resquestInfo(num, size) {

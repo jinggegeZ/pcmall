@@ -5,20 +5,21 @@
       <div class="goods">
         <!-- 轮播 -->
         <div class="goods_a">
-          <div class="gleft" >
+          <div class="gleft">
             <div class="glimg" v-for="(item,index) in list" :key="index">
-            <div class="ggimg"><img :src="item" alt="" width="75px"></div>
+            <img :src="item" alt="" width="75px">
             </div>
+            
           </div>
-          <div class="gright"><img :src="arr.productImageBig" alt="" width="350px"></div>
+          <div class="gright"><img :src="item.picUrl" alt="" width="330px"></div>
         </div>
         <!-- 操作 -->
         <div class="stuff">
           <div class="stuff_1">
-            <div class="stuff_a">{{arr.productName}}</div>
+            <div class="stuff_a">{{item.productName}}</div>
             <div class="stuff_d">
-              <span class="stuff_b">{{arr.subTitle}}</span>
-              <span class="stuff_c">¥{{arr.salePrice}}.00</span>
+              <span class="stuff_b">{{item.subTitle}}</span>
+              <span class="stuff_c">¥{{item.salePrice}}.00</span>
             </div>
           </div>
           <div class="stuff_2">
@@ -59,12 +60,10 @@ export default {
     // this.item = window.location.search.substring({item})
     // console.log(this.item);
     this.ids = this.$route.query.id
-    // this.productId = this.item.productId
-    console.log(this.ids);
+    this.productId = this.item.productId
     this.$api.goodsDetail(this.ids)
     .then(res => {
       this.arr = res.data.result
-      console.log(this.arr);
       this.list = res.data.result.productImageSmall
     }).catch(err => {})
   },
@@ -91,7 +90,7 @@ export default {
   box-shadow: 0 3px 8px -6px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin: 20px 0;
-  height: 500px;
+  height: 442px;
   display: flex;
   justify-content: space-between;
 }
@@ -110,7 +109,7 @@ export default {
   height: 100%;
 }
 .gright{
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,16 +120,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-}
-.ggimg {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #dddddd;
-
 }
 .stuff_a {
   font-size: 24px;

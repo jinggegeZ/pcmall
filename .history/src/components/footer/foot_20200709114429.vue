@@ -33,16 +33,12 @@ export default {
     };
   },
   methods: {
-    details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
-        name: "deta",
-        query: {id: this.panelContents.slice(1,4)[index].productId},
-        
-      });
-      window.open(routeData.href, "_blank");
-
-    },
+     details(item){
+      this.$router.push({
+        path:'deta',
+        query:{item: item}
+      })
+    }
   },
   mounted() {},
   watch: {},

@@ -29,16 +29,12 @@
      }
    },
    methods: {
-     details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
-        name: "deta",
-        query: {id: this.middle[index].productId},
-        
-      });
-      window.open(routeData.href, "_blank");
-
-    },
+     details(item){
+      this.$router.push({
+        path:'deta',
+        query:{item: item}
+      })
+    }
    },
    mounted() {
 

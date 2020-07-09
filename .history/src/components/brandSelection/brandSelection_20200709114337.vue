@@ -10,7 +10,7 @@
           <div class="jx_c"></div>
         </div>
         <!-- 其余的 -->
-          <div class="jx_a" v-for="(item1,index1) in bandSelections.slice(1,7)" :key="index1">
+          <div class="jx_a" v-for="item1 in bandSelections.slice(1,7)" :key="item1.id">
             <div class="hot_stuff">
               <div class="hot_e"><img :src="item1.picUrl" alt=""></div>
               <div class="hot_f">{{item1.productName}}</div>
@@ -48,16 +48,12 @@
      }
    },
    methods: {
-   details(index1) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
-        name: "deta",
-        query: {id: this.bandSelections.slice(1,7)[index1].productId},
-        
-      });
-      window.open(routeData.href, "_blank");
-
-    },
+     details(item1){
+      this.$router.push({
+        path:'deta',
+        query:{item: item1}
+      })
+    }
    },
    mounted() {
   

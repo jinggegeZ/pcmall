@@ -10,7 +10,7 @@
             <div class="ggimg"><img :src="item" alt="" width="75px"></div>
             </div>
           </div>
-          <div class="gright"><img :src="arr.productImageBig" alt="" width="350px"></div>
+          <div class="gright"><img :src="arr.picUrl" alt="" width="350px"></div>
         </div>
         <!-- 操作 -->
         <div class="stuff">
@@ -110,7 +110,7 @@ export default {
   height: 100%;
 }
 .gright{
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;

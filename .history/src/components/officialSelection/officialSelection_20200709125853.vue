@@ -46,11 +46,11 @@ export default {
     return {};
   },
   methods: {
-  details(index1) {
+  details(index) {
       // window.open(`/deta?item=${item}`);
       let routeData = this.$router.resolve({
         name: "deta",
-        query: {id: this.officialSelection.slice(1,7)[index1].productId},
+        query: {id: this.officialSelection.slice(1,7)[index].productId},
         
       });
       window.open(routeData.href, "_blank");

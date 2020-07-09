@@ -3,7 +3,7 @@
     <div class="lunbo">
       <div class="lunbo_a">
         <Carousel v-model="value1" loop>
-          <CarouselItem  v-for="(item,index) in swiper" :key="index">
+          <CarouselItem  v-for="item in swiper" :key="item.id">
             <div class="demo-carousel">
               <div class="lunbo_b">
                 <img class="img1" :src="item.picUrl" alt @click="details(index)" />
@@ -34,16 +34,12 @@ export default {
     };
   },
   methods: {
-   details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
-        name: "deta",
-        query: {id: this.swiper[index].productId},
-        
-      });
-      window.open(routeData.href, "_blank");
-
-    },
+    details(item){
+      this.$router.push({
+        path:'deta',
+        query:{item: item}
+      })
+    }
   },
   mounted() {},
   watch: {},

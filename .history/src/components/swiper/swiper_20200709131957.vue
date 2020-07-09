@@ -3,7 +3,7 @@
     <div class="lunbo">
       <div class="lunbo_a">
         <Carousel v-model="value1" loop>
-          <CarouselItem  v-for="(item,index) in swiper" :key="index">
+          <CarouselItem  v-for="item in swiper" :key="item.id">
             <div class="demo-carousel">
               <div class="lunbo_b">
                 <img class="img1" :src="item.picUrl" alt @click="details(index)" />

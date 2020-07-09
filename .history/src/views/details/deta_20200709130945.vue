@@ -5,12 +5,12 @@
       <div class="goods">
         <!-- 轮播 -->
         <div class="goods_a">
-          <div class="gleft" >
-            <div class="glimg" v-for="(item,index) in list" :key="index">
-            <div class="ggimg"><img :src="item" alt="" width="75px"></div>
+          <div class="gleft" v-for="(item,index) in list" :key="index">
+            <div class="glimg">
+            <img :src="item" alt="" width="75px">
             </div>
           </div>
-          <div class="gright"><img :src="arr.productImageBig" alt="" width="350px"></div>
+          <div class="gright"><img :src="item.picUrl" alt="" width="330px"></div>
         </div>
         <!-- 操作 -->
         <div class="stuff">
@@ -91,7 +91,7 @@ export default {
   box-shadow: 0 3px 8px -6px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin: 20px 0;
-  height: 500px;
+  height: 442px;
   display: flex;
   justify-content: space-between;
 }
@@ -110,7 +110,7 @@ export default {
   height: 100%;
 }
 .gright{
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,16 +121,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-}
-.ggimg {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #dddddd;
-
 }
 .stuff_a {
   font-size: 24px;

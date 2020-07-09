@@ -110,7 +110,7 @@ export default {
   height: 100%;
 }
 .gright{
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;

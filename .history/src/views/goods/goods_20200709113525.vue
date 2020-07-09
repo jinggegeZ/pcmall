@@ -155,7 +155,7 @@ export default {
     details(index) {
       // window.open(`/deta?item=${item}`);
       let routeData = this.$router.resolve({
-        name: "deta",
+        name: "Particulars",
         query: {id: this.shoplist[index].productId},
         
       });

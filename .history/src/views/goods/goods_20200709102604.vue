@@ -37,7 +37,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(index)">查看详情</Button>
+                      <Button @click="details(item)">查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export default {
     //默认请求
     moren() {
       this.$api
-        .allGoods({ page: 1, size: 30 })
+        .allGoods({ page: 1, size: 30,})
         .then(res => {
           this.arr = res.data;
           this.shoplist = this.arr;
@@ -121,25 +121,25 @@ export default {
     //价格输入搜索
     enter() {
       this.$api
-        .allG({
-          page: 1,
-          size: 30,
-          sort: 1,
-          priceGt: Number(this.value1),
-          priceLte: Number(this.value2)
-        })
-        .then(res => {
-          if (this.value1 < this.value2) {
-            this.arr = res.data;
+          .allG({
+            page: 1,
+            size: 30,
+            sort: 1,
+            priceGt: Number(this.value1),
+            priceLte: Number(this.value2)
+          })
+          .then(res => {
+            if(this.value1 < this.value2){
+              this.arr = res.data;
             this.total = res.total;
             this.shoplist = this.arr;
             console.log(this.shoplist);
-          }
-          if (this.value1 > this.value2) {
-            this.$Message.error("请正确输入价格区间（由小到大）");
-          }
-        })
-        .catch(err => {});
+            }
+            if(this.value1 > this.value2){
+              this.$Message.error('请正确输入价格区间（由小到大）')
+            }
+          })
+          .catch(err => {});
     },
     //改变页码
     changepage(index) {
@@ -152,15 +152,12 @@ export default {
       this.resquestInfo(this.currentPage, this.pageSize);
     },
     //跳转详情
-    details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
-        name: "deta",
-        query: {id: this.shoplist[index].productId},
-        
+    details(item) {
+      this.$router.push({
+        path: "deta",
+        query: { item: item }
       });
-      window.open(routeData.href, "_blank");
-
+      window.open
     },
     //分页请求
     resquestInfo(num, size) {

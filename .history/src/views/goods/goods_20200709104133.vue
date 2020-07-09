@@ -37,7 +37,7 @@
                   <div class="hot_h">
                     ￥{{item.salePrice}}
                     <div class="hot_i">
-                      <Button @click="details(index)">查看详情</Button>
+                      <Button @click="details(item)">查看详情</Button>
                       <Button type="primary">加入购物车</Button>
                     </div>
                   </div>
@@ -152,15 +152,19 @@ export default {
       this.resquestInfo(this.currentPage, this.pageSize);
     },
     //跳转详情
-    details(index) {
-      // window.open(`/deta?item=${item}`);
-      let routeData = this.$router.resolve({
+    details(item) {
+     let router = this.$router.resolve({
         name: "deta",
-        query: {id: this.shoplist[index].productId},
-        
+        query: {
+          item: item
+        }
       });
-      window.open(routeData.href, "_blank");
-
+      window.open(router.herf, "_blank");
+      // this.$router.resolve()({
+      //   name: "router",
+      //   query: { item: item }
+      // });
+      // window.open('deta','详情')
     },
     //分页请求
     resquestInfo(num, size) {
