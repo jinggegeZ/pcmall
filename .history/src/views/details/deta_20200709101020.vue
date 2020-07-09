@@ -11,7 +11,7 @@
             </div>
             
           </div>
-          <div class="gright"><img :src="item.picUrl" alt="" width="330px"></div>
+          <div class="gright"><img :src="item.picUrl" alt="" width="350px"></div>
         </div>
         <!-- 操作 -->
         <div class="stuff">

@@ -77,18 +77,16 @@ export default {
       shoplist: [],
       sort: "",
       total: "",
-      //page
-      currentPage: 1,
-      //size
-      pageSize: 20,
-      pageSizeGroup: [8, 20, 24, 30]
+      currentPage:1,
+      pageSize: 8,
+      pageSizeGroup:[8,16,24,32]
     };
   },
   methods: {
     //默认请求
     moren() {
       this.$api
-        .allGoods({ page: 1, size: 30,})
+        .allGoods({ page: 1, size: 30, sort: "" })
         .then(res => {
           this.arr = res.data;
           this.shoplist = this.arr;
@@ -99,7 +97,7 @@ export default {
     //降序
     down() {
       this.$api
-        .allGood({ page: 1, size: 30, sort: 1 })
+        .allGood({ page: 1, size: 30, sort: 1})
         .then(res => {
           this.arr = res.data;
           console.log(this.arr);
@@ -113,38 +111,34 @@ export default {
         .allGood({ page: 1, size: 30, sort: -1 })
         .then(res => {
           this.arr = res.data;
-          console.log(this.arr);
+           console.log(this.arr);
           this.shoplist = this.arr;
         })
         .catch(err => {});
     },
     //价格输入搜索
     enter() {
-      this.$api
-          .allG({
-            page: 1,
-            size: 30,
-            sort: 1,
-            priceGt: Number(this.value1),
-            priceLte: Number(this.value2)
-          })
-          .then(res => {
-            this.arr = res.data;
-            this.total = res.total;
-            this.shoplist = this.arr;
-            console.log(this.shoplist);
-          })
-          .catch(err => {});
+      this.$api.allG({
+      page :this.currentPage, 
+      size :this.pageSize,
+      sort:'',
+      priceGt:Number(this.value1),
+      priceLte:Number(this.value2)
+      }).then(res => {
+        if(this.value1 < this.value2){
+          sort = 
+        }
+      })
     },
     //改变页码
     changepage(index) {
-      this.currentPage = index;
-      this.resquestInfo(this.currentPage, this.pageSize);
+      this.currentPage=index;
+    this.resquestInfo(this.currentPage,this.pageSize);
     },
-    changeSizePage(val) {
+    changeSizePage(val){
       //页面大小
-      this.pageSize = val;
-      this.resquestInfo(this.currentPage, this.pageSize);
+      this.pageSize=val;
+      this.resquestInfo(this.currentPage,this.pageSize);
     },
     //跳转详情
     details(item) {
@@ -154,31 +148,33 @@ export default {
       });
     },
     //分页请求
-    resquestInfo(num, size) {
+    resquestInfo(num,size){
       this.$api
-        .allGoods({ page: num, size: size })
-        .then(res => {
-          this.arr = res.data;
-          this.total = res.total;
+      .allGoods({ page: num, size:size })
+      .then(res => {
+        this.arr = res.data;
+        this.total = res.total;
+        this.shoplist = this.arr;
+        console.log(res);
+        if (this.total < this.pageSize) {
           this.shoplist = this.arr;
-          if (this.total < this.pageSize) {
-            this.shoplist = this.arr;
-          } else {
-            this.arr = this.arr.slice(0, this.pageSize);
-          }
-        })
-        .catch(err => {});
+        } else {
+          this.arr = this.arr.slice(0, this.pageSize);
+        }
+      })
+      .catch(err => {});
     }
   },
   //默认请求
   mounted() {
     // this.resquestInfo();
     this.$api
-      .allGoods({ page: this.currentPage, size: this.pageSize })
+      .allGoods({ page: this.currentPage, size:this.pageSize })
       .then(res => {
         this.arr = res.data;
         this.total = res.total;
         this.shoplist = this.arr;
+        console.log(res);
         if (this.total < this.pageSize) {
           this.shoplist = this.arr;
         } else {

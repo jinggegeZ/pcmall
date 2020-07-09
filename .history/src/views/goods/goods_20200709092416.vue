@@ -80,15 +80,15 @@ export default {
       //page
       currentPage: 1,
       //size
-      pageSize: 20,
-      pageSizeGroup: [8, 20, 24, 30]
+      pageSize: 8,
+      pageSizeGroup: [8, 16, 24, 30]
     };
   },
   methods: {
     //默认请求
     moren() {
       this.$api
-        .allGoods({ page: 1, size: 30,})
+        .allGoods({ page: 1, size: 30, sort: "" })
         .then(res => {
           this.arr = res.data;
           this.shoplist = this.arr;
@@ -120,7 +120,8 @@ export default {
     },
     //价格输入搜索
     enter() {
-      this.$api
+      if (this.value1 < this.value2) {
+        this.$api
           .allG({
             page: 1,
             size: 30,
@@ -135,6 +136,24 @@ export default {
             console.log(this.shoplist);
           })
           .catch(err => {});
+      }
+       else {
+        this.$api
+          .allG({
+            page: 1,
+            size: 30,
+            sort: -1,
+            priceGt: Number(this.value1),
+            priceLte: Number(this.value2)
+          })
+          .then(res => {
+            this.arr = res.data;
+            this.total = res.total;
+            this.shoplist = this.arr;
+            console.log(this.shoplist);
+          })
+          .catch(err => {});
+      }
     },
     //改变页码
     changepage(index) {

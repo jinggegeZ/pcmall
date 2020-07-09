@@ -18,7 +18,7 @@ export default {
   // sort: 排序方式 1为升序 -1为降序
   // priceGt: 价格区间 从多少开始
   // priceLte: 价格区间 到哪结束
-  allGoods({page, size,sort,priceGt,priceLte}) {
+  allGoods({page, size}) {
       return service.get(`/goods/allGoods?page=${page}&size=${size}`)
   },
   allGood({page, size,sort}) {

@@ -80,8 +80,8 @@ export default {
       //page
       currentPage: 1,
       //size
-      pageSize: 20,
-      pageSizeGroup: [8, 20, 24, 30]
+      pageSize: 8,
+      pageSizeGroup: [8, 16, 24, 30]
     };
   },
   methods: {

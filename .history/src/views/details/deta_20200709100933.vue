@@ -11,7 +11,7 @@
             </div>
             
           </div>
-          <div class="gright"><img :src="item.picUrl" alt="" width="330px"></div>
+          <div class="gright"><img :src="item.picUrl" alt="" width="300px"></div>
         </div>
         <!-- 操作 -->
         <div class="stuff">
@@ -104,18 +104,18 @@ export default {
   height: 100%;
 }
 .gleft{
-  width: 25%;
+  width: 30%;
   height: 100%;
 }
 .gright{
-  width: 75%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .glimg {
   height: 80px;
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
