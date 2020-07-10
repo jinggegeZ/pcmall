@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>

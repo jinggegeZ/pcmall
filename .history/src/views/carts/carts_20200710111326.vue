@@ -23,13 +23,8 @@
                 </div>
               </td>
               <td>￥{{item.salePrice}}</td>
-              <td class="td">
-                <div class="jian" @click="jian(item)">-</div>
-                <div v-if="item.count >= 1">{{item.count}}</div>
-                <div v-else>1</div>
-                <div class="add" @click="add(item)">+</div>
-              </td>
-              <td>¥{{item.count*item.salePrice|fixed}}</td>
+              <td>{{item.count}}</td>
+              <td>¥ {{totals}}</td>
               <td>
                 <Icon type="ios-close-circle-outline" size="24" @click="del(item)" />
               </td>
@@ -44,24 +39,25 @@
                     <div v-else-if="checkAll===true">
                       <Checkbox :value="checkAll" @click.prevent.native="checkedAll">取消全选</Checkbox>
                     </div>
+                    
                   </div>
                   <div class="jiesuan_d">
                     <div class="jiesuan_e">
                       <div>
                         已选择
-                        <span>{{counts}}</span> 件商品
+                        <span>2</span> 件商品
                       </div>
-                      <div class="jiesuan_f">共计{{Count}}件商品</div>
+                      <div class="jiesuan_f">共计2件商品</div>
                     </div>
                     <div>
                       <div>
                         应付总额：
-                        <span>￥{{total}}</span>
+                        <span>￥{{totals}}</span>
                       </div>
                       <div class="jiesuan_f">应付总额不含运费</div>
                     </div>
                     <div>
-                      <Button type="primary" @click="gopay()">现在结算</Button>
+                      <Button type="primary">现在结算</Button>
                     </div>
                   </div>
                 </div>
@@ -87,7 +83,7 @@ export default {
   methods: {
     // 全选
     checkedAll() {
-      this.checkAll = !this.checkAll;
+      this.checkAll = !this.checkAll
       this.arr.map(item => {
         item.check = this.checkAll;
       });
@@ -129,40 +125,6 @@ export default {
       } else {
         this.$Message.error("您还没有选择删除的商品");
       }
-    },
-    //add增加按钮
-    add(item) {
-      item.count++;
-      this.$api
-        .editCart({ productId: item.productId, count: item.count })
-        .then(res => {
-          console.log(res);
-        })
-        .catch(err => {});
-    },
-    //减少
-    jian(item) {
-      item.count--;
-      this.$api
-        .editCart({ productId: item.productId, count: item.count })
-        .then(res => {
-          console.log(res);
-        })
-        .catch(err => {});
-    },
-    //现在结算
-    gopay() {
-      this.msg = this.arr.filter(item => {
-        return item.check === true;
-      });
-      if (this.msg.length > 0) {
-        this.$router.push({
-          path: "pay",
-          query: { msg: this.msg }
-        });
-      } else {
-        this.$Message.error("您还没有选择商品，请选择");
-      }
     }
   },
   mounted() {
@@ -170,52 +132,17 @@ export default {
   },
   watch: {},
   computed: {
-    //小计
+    //定义总价
     totals() {
       let sum = 0;
-
+      // let counts = 0;
       this.arr.map(item => {
         if (item.check) {
           sum += item.salePrice * item.count;
+          // counts += item.count
         }
       });
       return sum;
-    },
-    //总价
-    total() {
-      let sum = 0;
-
-      this.arr.map(item => {
-        if (item.check) {
-          sum += item.count * item.salePrice;
-        }
-      });
-      return sum;
-    },
-    //小计
-    counts() {
-      let sun = 0;
-      this.arr
-        .filter(item => {
-          return item.check === true;
-        })
-        .map(item => {
-          sun += item.count;
-        });
-      return sun;
-    },
-    //共计
-    Count() {
-      let sun = 0;
-      this.arr.map(item => {
-        sun += item.count;
-      });
-      return sun;
-    }
-  },
-  filters: {
-    fixed(val) {
-      return Number(val).toFixed(2);
     }
   }
 };
@@ -263,42 +190,11 @@ table td {
 td {
   vertical-align: middle;
 }
-.td {
-  display: flex;
-  height: 30px;
-  align-items: center;
-  justify-content: space-around;
-}
 .t_body td {
   height: 140px;
 }
 .t_body {
   border-bottom: 1px solid #eeeeee;
-}
-.jian {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  border: 1px solid #dddddd;
-  background: white;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.add {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  border: 1px solid #dddddd;
-  background: white;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.add:hover {
-  color:red
 }
 .thing {
   width: 95%;

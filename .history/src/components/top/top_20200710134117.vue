@@ -68,7 +68,7 @@
                       <div class="js_a">共计{{Count}}件商品</div>
                       <div class="js_b">
                         合计
-                        <span class="js_c">￥{{total}}</span>
+                        <span class="js_c">￥{{totals}}</span>
                       </div>
                     </div>
                     <div>
@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>
@@ -148,17 +148,10 @@ export default {
   },
   watch: {},
   computed: {
-     //总价
-    total(){
-      let sum = 0
-      
-      this.arr.map(item => {
-        if (item) {
-          
-          sum += item.count * item.salePrice;
-        }
-      });
-      return sum;
+    totals() {
+      let sum = 0;
+      sum += this.arr.salePrice * this.arr.count;
+      return sum; 
     },
     Count(){
       let sun = 0;

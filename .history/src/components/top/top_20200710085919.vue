@@ -58,14 +58,14 @@
                         </div>
                       </div>
                       <div class="buy_list_d">
-                        <Icon type="ios-close-circle-outline" size="20" @click="del(item)" />
+                        <Icon type="ios-close-circle-outline" size="20" />
                       </div>
                     </div>
                   </div>
                   <!-- 结算 -->
                   <div class="js">
                     <div>
-                      <div class="js_a">共计{{Count}}件商品</div>
+                      <div class="js_a">共计3件商品</div>
                       <div class="js_b">
                         合计
                         <span class="js_c">￥{{total}}</span>
@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default {
   data() {
     return {
       key: "",
-      arr:[],
+      arrL:[]
     };
   },
   methods: {
@@ -113,59 +113,28 @@ export default {
       });
     },
     gocarts(){
-      if(localStorage.username){
-        this.$router.push('carts')
-      }
-      else{
-        this.$Message.error('您还没有登录，请先登录哦')
-      }
-    },
-    del(item) {
-      this.$api
-          .delCart(item._id)
-          .then(res => {
-            this.$Message.success("删除成功");
-            this.gogetcart();
-          })
-          .catch(err => {});
-    },
-    //获取购物车数据
-    gogetcart() {
-      this.$api
-        .getCarts()
-        .then(res => {
-          this.arr = res.data;
-          console.log(this.arr);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
+      this.$router.push('carts')
+    }
   },
   mounted() {
-    this.gogetcart()
-    localStorage.getItem('username')
+    this.$api.getCarts()
+    .then(res => {
+      this.arr = res.data
+      console.log(this.arr);
+    }).catch(err => {
+      console.log(err);
+    })
   },
   watch: {},
   computed: {
-     //总价
-    total(){
-      let sum = 0
-      
+    total() {
+      let sum = 0;
       this.arr.map(item => {
-        if (item) {
-          
-          sum += item.count * item.salePrice;
+        if (item.check) {
+          sum += item.salePrice * item.count;
         }
       });
       return sum;
-    },
-    Count(){
-      let sun = 0;
-      this.arr.map(item => {
-        sun += item.count
-      })
-      return sun
     }
   }
 };

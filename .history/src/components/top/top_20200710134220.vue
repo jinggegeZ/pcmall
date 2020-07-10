@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>
@@ -151,13 +151,7 @@ export default {
      //总价
     total(){
       let sum = 0
-      
-      this.arr.map(item => {
-        if (item) {
-          
-          sum += item.count * item.salePrice;
-        }
-      });
+      sum += item.count * item.salePrice;
       return sum;
     },
     Count(){

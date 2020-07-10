@@ -65,10 +65,10 @@
                   <!-- 结算 -->
                   <div class="js">
                     <div>
-                      <div class="js_a">共计{{Count}}件商品</div>
+                      <div class="js_a">共计{{arr.length}}件商品</div>
                       <div class="js_b">
                         合计
-                        <span class="js_c">￥{{total}}</span>
+                        <span class="js_c">￥123</span>
                       </div>
                     </div>
                     <div>
@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default {
   data() {
     return {
       key: "",
-      arr:[],
+      arr:[]
     };
   },
   methods: {
@@ -148,25 +148,15 @@ export default {
   },
   watch: {},
   computed: {
-     //总价
-    total(){
-      let sum = 0
-      
-      this.arr.map(item => {
-        if (item) {
-          
-          sum += item.count * item.salePrice;
-        }
-      });
-      return sum;
-    },
-    Count(){
-      let sun = 0;
-      this.arr.map(item => {
-        sun += item.count
-      })
-      return sun
-    }
+    // total() {
+    //   let sum = 0;
+    //   this.arr.map(item => {
+    //     if (item.check) {
+    //       sum += item.salePrice * item.count;
+    //     }
+    //   });
+    //   return sum;
+    // }
   }
 };
 </script>

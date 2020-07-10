@@ -298,7 +298,16 @@ td {
   align-items: center;
 }
 .add:hover {
-  color:red
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  background: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
 }
 .thing {
   width: 95%;

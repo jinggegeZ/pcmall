@@ -79,7 +79,7 @@
               </div>
                 </div>
               </a>
-              <div class="rrrr">{{Count}}</div>
+              <div class="rrrr">0</div>
             </div>
           </div>
         </div>
@@ -153,9 +153,9 @@ export default {
       let sum = 0
       
       this.arr.map(item => {
-        if (item) {
-          
+        if (item.check) {
           sum += item.count * item.salePrice;
+          
         }
       });
       return sum;
